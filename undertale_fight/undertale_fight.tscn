@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://dus6ysf6stwdq"]
+
+[ext_resource type="Texture2D" uid="uid://r48bbrlpydmi" path="res://icon.svg" id="1_1c78e"]
+[ext_resource type="Script" path="res://undertale_fight/player_move.gd" id="1_71mhl"]
+[ext_resource type="Script" path="res://undertale_fight/border_box.gd" id="3_ibcp5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6wfl5"]
+radius = 59.0
+height = 128.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xr36q"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yxa6i"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i7w3d"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rxha8"]
+
+[node name="UndertaleFight" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_71mhl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_1c78e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CapsuleShape2D_6wfl5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Boundary" type="Node2D" parent="." node_paths=PackedStringArray("left_boundary", "right_boundary", "top_boundary", "bottom_boundary")]
+script = ExtResource("3_ibcp5")
+size = Vector2(800, 600)
+duration = 1.0
+color = Color(1, 1, 1, 1)
+thickness = 10.0
+left_boundary = NodePath("AnimatableBody2D/Left")
+right_boundary = NodePath("AnimatableBody2D/Right")
+top_boundary = NodePath("AnimatableBody2D/Top")
+bottom_boundary = NodePath("AnimatableBody2D/Bottom")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="Boundary"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Bottom" type="CollisionShape2D" parent="Boundary/AnimatableBody2D"]
+position = Vector2(0, 295.037)
+shape = SubResource("WorldBoundaryShape2D_xr36q")
+
+[node name="Top" type="CollisionShape2D" parent="Boundary/AnimatableBody2D"]
+position = Vector2(0, -295.037)
+rotation = -3.14159
+shape = SubResource("WorldBoundaryShape2D_yxa6i")
+
+[node name="Left" type="CollisionShape2D" parent="Boundary/AnimatableBody2D"]
+position = Vector2(-400, 0)
+rotation = 1.57079
+shape = SubResource("WorldBoundaryShape2D_i7w3d")
+
+[node name="Right" type="CollisionShape2D" parent="Boundary/AnimatableBody2D"]
+position = Vector2(400, 0)
+rotation = -1.57079
+shape = SubResource("WorldBoundaryShape2D_rxha8")
