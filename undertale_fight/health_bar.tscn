@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjilm8il8jjok"]
+
+[ext_resource type="Script" path="res://undertale_fight/scripts/health_bar.gd" id="1_lk8bc"]
+[ext_resource type="Texture2D" uid="uid://c57cjwy5qce7j" path="res://undertale_fight/assets/tilemap/text_tilemap.png" id="1_p8yev"]
+[ext_resource type="Script" path="res://undertale_fight/scripts/remain_health.gd" id="3_2w8aj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2irf"]
+atlas = ExtResource("1_p8yev")
+region = Rect2(1121, 1434, 600, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l34qt"]
+atlas = ExtResource("1_p8yev")
+region = Rect2(1121, 1299, 600, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ex7xw"]
+atlas = ExtResource("1_p8yev")
+region = Rect2(1121, 1567, 600, 62)
+
+[node name="HealthBar" type="Node2D"]
+script = ExtResource("1_lk8bc")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_t2irf")
+centered = false
+
+[node name="RemainHealth" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_l34qt")
+centered = false
+script = ExtResource("3_2w8aj")
+player_health_bar = SubResource("AtlasTexture_l34qt")
+boss_health_bar = SubResource("AtlasTexture_ex7xw")

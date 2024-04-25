@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://clxqq832nir2q"]
+
+[ext_resource type="FontFile" uid="uid://cmn4ua8grprq7" path="res://undertale_fight/assets/fonts/DeterminationSansWeb.woff" id="1_xhwdu"]
+
+[resource]
+default_font = ExtResource("1_xhwdu")
+default_font_size = 40
