@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7u26fngm3dao"]
+
+[ext_resource type="Texture2D" uid="uid://dwwtnvv44gexc" path="res://undertale_fight/assets/tilemap/fight_tilemap.png" id="1_ts025"]
+[ext_resource type="FontFile" uid="uid://cqmxlxonew8a5" path="res://assets/fonts/Cubic_11/fonts/ttf/Cubic_11_1.100_R.ttf" id="2_07vm7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tewu"]
+atlas = ExtResource("1_ts025")
+region = Rect2(1410, 167, 60, 60)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qrq7x"]
+texture = SubResource("AtlasTexture_8tewu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e8sdi"]
+texture = SubResource("AtlasTexture_8tewu")
+
+[sub_resource type="Theme" id="Theme_x24p5"]
+Button/styles/focus = SubResource("StyleBoxTexture_qrq7x")
+Button/styles/pressed = SubResource("StyleBoxTexture_e8sdi")
+
+[sub_resource type="LabelSettings" id="LabelSettings_s8b8x"]
+font = ExtResource("2_07vm7")
+font_size = 36
+
+[node name="Option" type="HBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_x24p5")
+
+[node name="TextForPlayer" type="Label" parent="."]
+layout_mode = 2
+text = " *"
+label_settings = SubResource("LabelSettings_s8b8x")
+vertical_alignment = 1
