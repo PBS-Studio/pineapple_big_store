@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://gp8icys7ye2k"]
+[gd_scene load_steps=2 format=3 uid="uid://gp8icys7ye2k"]
+
+[ext_resource type="Script" path="res://just_go_down/Scenes/end_menu.gd" id="1_n60k5"]
 
 [node name="end_menu" type="Control"]
 layout_mode = 3
@@ -7,3 +9,38 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_n60k5")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.721569)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 540.0
+offset_top = 260.0
+offset_right = -532.0
+offset_bottom = -348.0
+text = "Restart"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 460.0
+offset_top = 217.0
+offset_right = -447.0
+offset_bottom = -408.0
+text = "太菜了吧 這樣期末可是會完蛋的喔"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
