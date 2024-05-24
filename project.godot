@@ -13,7 +13,10 @@ config_version=5
 config/name="PineappleBigStore"
 run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.776471, 0.639216, 0.180392, 1)
+boot_splash/image="res://assets/custom/logo_large.png"
+boot_splash/fullsize=false
+config/icon="res://assets/custom/logo_large.png"
 
 [autoload]
 
