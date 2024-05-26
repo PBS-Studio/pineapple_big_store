@@ -8,10 +8,13 @@ signal boss_turn
 const player_turn_box_size: Vector2 = Vector2(775, 190)
 const player_turn_box_position: Vector2 = Vector2(0, 110)
 @onready var player_health = %PlayerHealthBar
+@onready var player = %Player
 @onready var boss_health = %BossHealthBar
 @onready var boss_display = %BossDisplay
 @onready var boundary = %Boundary
 @onready var fight_player = %FightPlayer
+
+var death_screen=preload("res://undertale_fight/scenes/death_screen.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -52,3 +55,11 @@ func _player_turn_menu_callback():
 
 func _on_fight_player_animation_finished(_anim_nam0e):
 	_player_turn_menu()
+
+
+func _on_player_health_bar_health_zeroed():
+	var scene = death_screen.instantiate()
+	scene.player_position = player.global_position
+	get_tree().root.add_child(scene)
+	get_tree().current_scene = scene
+	queue_free()

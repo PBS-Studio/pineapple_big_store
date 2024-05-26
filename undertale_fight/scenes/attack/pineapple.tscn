@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://cukd2bd61s4y4" path="res://undertale_fight/assets/custom/pineapple_0005.png" id="5_lrnme"]
 [ext_resource type="AudioStream" uid="uid://bv55t1khgj88l" path="res://undertale_fight/assets/sound/snd_bombsplosion.wav" id="10_ys27u"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2dw3s"]
+size = Vector2(90, 90)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_roynf"]
 bg_color = Color(0, 0, 0, 0)
 border_width_left = 5
@@ -17,9 +20,6 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(1, 0.25098, 0.25098, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2dw3s"]
-size = Vector2(90, 90)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nwg2m"]
 animations = [{
@@ -137,6 +137,20 @@ tracks/5/keys = {
 "method": &"play"
 }]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"pineapple_fall"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ppr0e"]
 _data = {
@@ -146,6 +160,16 @@ _data = {
 [node name="Pineapple" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_jossc")
+
+[node name="WarningArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-50, -50)
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WarningArea"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_2dw3s")
 
 [node name="Warning" type="Panel" parent="."]
 anchors_preset = 8
@@ -160,13 +184,6 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_roynf")
-
-[node name="WarningArea" type="Area2D" parent="Warning"]
-unique_name_in_owner = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Warning/WarningArea"]
-position = Vector2(50, 50)
-shape = SubResource("RectangleShape2D_2dw3s")
 
 [node name="Label" type="Label" parent="Warning"]
 layout_mode = 1

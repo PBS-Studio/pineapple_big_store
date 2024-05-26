@@ -30,7 +30,7 @@ func take_damage(damage: int):
 	
 	remain_health = max(remain_health - damage, 0)
 	if remain_health == 0:
-		health_zeroed.emit()	
+		health_zeroed.emit()
 	_update_health_bar()
 	
 
