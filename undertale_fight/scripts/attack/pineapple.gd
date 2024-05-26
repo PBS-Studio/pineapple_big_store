@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var piece_count = 7
+@export var piece_count = 5
 
 
 var piece = preload("res://undertale_fight/scenes/attack/pineapple_piece.tscn")
@@ -8,7 +8,7 @@ var piece = preload("res://undertale_fight/scenes/attack/pineapple_piece.tscn")
 @onready var warning_area = %WarningArea
 
 
-func init(property: Dictionary):
+func init(property: Dictionary, _extra_info: Dictionary):
 	position = property.get("position")
 	piece_count = property.get("piece_count", piece_count)
 

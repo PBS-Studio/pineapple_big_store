@@ -11,6 +11,9 @@ signal player_damage(damage: int)
 
 
 func take_damage(damage: int):
+	if animation_player.is_playing():
+		return
+	
 	player_health_bar.take_damage(damage)
 	hurt_sound.play()
 	animation_player.play("damage")
@@ -37,5 +40,5 @@ func _physics_process(delta):
 
 func _on_visibility_changed():
 	var is_active = is_visible_in_tree()
-	#set_process(is_active)
-	#set_process_input(is_active)
+	set_process(is_active)
+	set_process_input(is_active)

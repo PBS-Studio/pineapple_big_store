@@ -209,6 +209,4 @@ stream = ExtResource("3_c38yi")
 [node name="ExpoldeSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_ys27u")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [connection signal="animation_finished" from="Pineapple/Pineapple" to="." method="_on_pineapple_animation_finished"]

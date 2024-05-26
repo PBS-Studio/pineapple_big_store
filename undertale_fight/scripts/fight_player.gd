@@ -32,13 +32,13 @@ extends AnimationPlayer
 
 @export var boss_gray_out: bool: 
 	get: 
-		return _boss.modulate.a != 1
+		return _boss.modulate != Color.WHITE
 	set(value): 
 		if is_node_ready(): 
 			if value: 
-				_boss.modulate.a = 0.5
+				_boss.modulate = Color.hex(0x444444ff)
 			else: 
-				_boss.modulate.a = 1
+				_boss.modulate = Color.WHITE
 
 @onready var _boundary = %Boundary
 @onready var _player = %Player
@@ -48,7 +48,10 @@ extends AnimationPlayer
 #region fight player function
 func spawn(scene: PackedScene, args: Dictionary): 
 	var node = scene.instantiate()
-	node.init(args)
+	var extra_info = {
+		"player_position": _player.position,
+	}
+	node.init(args, extra_info)
 	add_child(node)
 
 
@@ -60,7 +63,7 @@ func queue_free_all():
 #endregion
 
 
-func _on_animation_finished(anim_name): 
+func _on_animation_finished(_anim_name): 
 	queue_free_all()
 	player_visible = false
 	boss_gray_out = false

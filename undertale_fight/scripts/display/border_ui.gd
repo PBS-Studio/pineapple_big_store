@@ -79,6 +79,7 @@ func _on_fy_selected(_id):
 
 func _on_undertale_fight_player_turn(): 
 	visible = true
+	current_tab = Menu.TextDisplay
 	last_press_bottom_button.grab_focus()
 	last_press_bottom_button = null
 	can_back_to_last_press_bottom_button = true
