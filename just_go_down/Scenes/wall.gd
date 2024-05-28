@@ -6,7 +6,7 @@ extends CharacterBody2D
 var score = 0
 
 func _ready():
-	velocity.y =  100
+	velocity.y = 100 
 	update_score()
 
 func update_score():
@@ -17,3 +17,7 @@ func _physics_process(delta):
 	score += delta
 	update_score()
 	move_and_slide()
+
+
+#func _on_burst_timeout():
+	#velocity.y += 150

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgtyvyvhtlh2w"]
+
+[ext_resource type="Script" path="res://just_go_down/Scenes/trapfloor.gd" id="1_o6k5f"]
+[ext_resource type="Texture2D" uid="uid://jva3spgg5wuy" path="res://just_go_down/Images/floor.png" id="2_nbftx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xhqv"]
+size = Vector2(120, 30)
+
+[node name="trapfloor" type="Area2D"]
+script = ExtResource("1_o6k5f")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.741176, 1, 1)
+position = Vector2(6.88434e-06, -5.96046e-08)
+scale = Vector2(0.35503, 0.117647)
+texture = ExtResource("2_nbftx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_8xhqv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
