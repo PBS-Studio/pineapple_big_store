@@ -2,7 +2,7 @@ extends Node2D
 
 @export var pointer_count: int = 11
 @export var radius: int = 300
-@export var duration: float = 3
+@export var duration: float = 2.5
 var pointer = preload("res://undertale_fight/scenes/attack/pointer.tscn")
 
 
