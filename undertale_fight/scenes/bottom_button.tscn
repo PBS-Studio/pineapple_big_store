@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbdnxi10syien"]
+
+[ext_resource type="AudioStream" uid="uid://bndh3i56h0wtg" path="res://undertale_fight/assets/sound/snd_select.wav" id="2_c8hgg"]
+[ext_resource type="Script" path="res://undertale_fight/scripts/display/bottom_button.gd" id="2_xuufx"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(147, 55)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_right = NodePath("../Act")
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+button_mask = 0
+keep_pressed_outside = true
+script = ExtResource("2_xuufx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_c8hgg")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfg82o6cty328"]
+
+[ext_resource type="Script" path="res://undertale_fight/scripts/attack/pointer.gd" id="1_u5rcf"]
+[ext_resource type="FontFile" uid="uid://cmn4ua8grprq7" path="res://undertale_fight/assets/fonts/DeterminationSansWeb.woff" id="3_47f7g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7ke3"]
+size = Vector2(73, 8)
+
+[node name="Pointer" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_u5rcf")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-36.5, 0)
+shape = SubResource("RectangleShape2D_x7ke3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -73.0
+offset_top = -14.0
+offset_right = 16.0
+offset_bottom = 17.0
+theme_override_fonts/font = ExtResource("3_47f7g")
+theme_override_font_sizes/font_size = 25
+text = "i*->p++"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

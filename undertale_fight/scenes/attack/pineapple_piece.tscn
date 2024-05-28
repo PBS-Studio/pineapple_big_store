@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqrf8et5ql8rj"]
+
+[ext_resource type="Script" path="res://undertale_fight/scripts/attack/pineapple_piece.gd" id="1_a5dvp"]
+[ext_resource type="Texture2D" uid="uid://b6fvygtivupwn" path="res://undertale_fight/assets/custom/pineapple_piece.png" id="1_jgy03"]
+[ext_resource type="AudioStream" uid="uid://b4ygeh5apatpx" path="res://undertale_fight/assets/sound/snd_arrow.wav" id="3_3njxc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ngoeo"]
+radius = 15.0
+
+[node name="PineapplePiece" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_a5dvp")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ngoeo")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(2.1, 2.1)
+
+[node name="Piece" type="Sprite2D" parent="."]
+texture = ExtResource("1_jgy03")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3njxc")
+autoplay = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

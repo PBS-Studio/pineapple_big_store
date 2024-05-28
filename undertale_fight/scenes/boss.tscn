@@ -1,0 +1,165 @@
+[gd_scene load_steps=12 format=3 uid="uid://c4hb73n1dy8oc"]
+
+[ext_resource type="Script" path="res://undertale_fight/scripts/boss.gd" id="1_2hpom"]
+[ext_resource type="Texture2D" uid="uid://cg4x0mjb2oina" path="res://undertale_fight/assets/custom/boss/leg.png" id="1_3rg2o"]
+[ext_resource type="Texture2D" uid="uid://coejtixphfyea" path="res://undertale_fight/assets/custom/boss/left_hand.png" id="2_rypsb"]
+[ext_resource type="Texture2D" uid="uid://d2be573jf6wiu" path="res://undertale_fight/assets/custom/boss/right_hand.png" id="3_0lc03"]
+[ext_resource type="Texture2D" uid="uid://wrn65mautfx5" path="res://undertale_fight/assets/custom/boss/head.png" id="4_j04fx"]
+[ext_resource type="Texture2D" uid="uid://c78hmrlcpobi4" path="res://undertale_fight/assets/custom/boss/glasses.png" id="5_vtmji"]
+[ext_resource type="Texture2D" uid="uid://fkeg1e76j24i" path="res://undertale_fight/assets/custom/boss/hair.png" id="6_6jio3"]
+[ext_resource type="Texture2D" uid="uid://dk7piah8ccjf2" path="res://undertale_fight/assets/custom/boss/body.png" id="7_kkvas"]
+
+[sub_resource type="Animation" id="Animation_tpo55"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -43)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftHand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0403827]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RightHand:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hair:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0486912]
+}
+
+[sub_resource type="Animation" id="Animation_itvp8"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.3, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -43), Vector2(0, -44.25), Vector2(0, -44.25), Vector2(0, -42.6875)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftHand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0707395]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RightHand:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.127787]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hair:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0486912]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fdbfa"]
+_data = {
+"RESET": SubResource("Animation_tpo55"),
+"idle": SubResource("Animation_itvp8")
+}
+
+[node name="Boss" type="Node2D"]
+texture_filter = 1
+scale = Vector2(3.2, 3.2)
+script = ExtResource("1_2hpom")
+
+[node name="Leg" type="Sprite2D" parent="."]
+position = Vector2(0, -42.5)
+texture = ExtResource("1_3rg2o")
+
+[node name="LeftHand" type="Sprite2D" parent="."]
+position = Vector2(-9.0625, -58.9375)
+rotation = 0.0403827
+texture = ExtResource("2_rypsb")
+offset = Vector2(9, 14)
+
+[node name="RightHand" type="Sprite2D" parent="."]
+position = Vector2(9.3125, -59.0625)
+texture = ExtResource("3_0lc03")
+offset = Vector2(-9, 14)
+
+[node name="Head" type="Sprite2D" parent="."]
+position = Vector2(0, -43)
+texture = ExtResource("4_j04fx")
+
+[node name="Glasses" type="Sprite2D" parent="."]
+position = Vector2(0, -43)
+texture = ExtResource("5_vtmji")
+
+[node name="Hair" type="Sprite2D" parent="."]
+position = Vector2(0, -87.0625)
+rotation = 0.0486912
+texture = ExtResource("6_6jio3")
+offset = Vector2(0, 44)
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(0, -43)
+texture = ExtResource("7_kkvas")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fdbfa")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]

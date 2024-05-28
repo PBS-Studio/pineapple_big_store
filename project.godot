@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="PineappleBigStore"
+config/name_localized={
+"zh_TW": "鳳梨大學店"
+}
 run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.776471, 0.639216, 0.180392, 1)
+boot_splash/image="res://assets/custom/logo_large.png"
+boot_splash/fullsize=false
+config/icon="res://assets/custom/logo_large.png"
 
 [autoload]
 
@@ -29,8 +35,8 @@ directories/dtl_directory={
 "test_timeline": "res://undertale_fight/story/test_timeline.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://undertale_fight/scenes/dialogic.tres"]
-layout/default_style="res://undertale_fight/scenes/dialogic.tres"
+layout/style_list=[]
+layout/default_style=""
 variables={}
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
