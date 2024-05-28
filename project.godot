@@ -29,7 +29,8 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"fy": "res://undertale_fight/story/fy.dch"
+"fy": "res://undertale_fight/story/fy.dch",
+"narrate": "res://undertale_fight/story/narrate.dch"
 }
 directories/dtl_directory={
 "test_timeline": "res://undertale_fight/story/test_timeline.dtl"
@@ -54,6 +55,7 @@ choices/delay=0.2
 choices/reveal_delay=0
 choices/reveal_by_input=false
 text/autopauses={}
+text/advance_delay=0.1
 
 [display]
 

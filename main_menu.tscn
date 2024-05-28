@@ -1,9 +1,49 @@
-[gd_scene load_steps=2 format=3 uid="uid://btj85ktwn75vv"]
+[gd_scene load_steps=6 format=3 uid="uid://btj85ktwn75vv"]
 
-[ext_resource type="Texture2D" uid="uid://r48bbrlpydmi" path="res://icon.svg" id="1_mc6au"]
+[ext_resource type="Script" path="res://script/main_menu.gd" id="1_701vp"]
+[ext_resource type="Texture2D" uid="uid://d0w8pff1up6ta" path="res://assets/custom/background.png" id="1_eo460"]
+[ext_resource type="FontFile" uid="uid://cqmxlxonew8a5" path="res://assets/fonts/Cubic_11/fonts/ttf/Cubic_11_1.100_R.ttf" id="3_21q07"]
+[ext_resource type="PackedScene" uid="uid://dmkhux8qjxyu8" path="res://scenes/menu_button.tscn" id="4_itupk"]
+[ext_resource type="Texture2D" uid="uid://b6fvygtivupwn" path="res://undertale_fight/assets/custom/pineapple_piece.png" id="5_se4di"]
 
 [node name="MainMenu" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_701vp")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(281, 198)
-texture = ExtResource("1_mc6au")
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1280, 1280)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+texture = ExtResource("1_eo460")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 1280)
+
+[node name="Title" type="RichTextLabel" parent="."]
+offset_left = 134.0
+offset_top = 62.0
+offset_right = 1061.0
+offset_bottom = 546.0
+theme_override_colors/default_color = Color(1, 0.992157, 0.972549, 1)
+theme_override_fonts/normal_font = ExtResource("3_21q07")
+theme_override_font_sizes/normal_font_size = 150
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=7.0 connected=1]鳳梨  大學店"
+
+[node name="Button" parent="." instance=ExtResource("4_itupk")]
+offset_left = 346.0
+offset_top = 406.0
+offset_right = 727.0
+offset_bottom = 497.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "   開始遊戲"
+
+[node name="Icon" type="Sprite2D" parent="Button"]
+position = Vector2(41, 42)
+scale = Vector2(1.8125, 1.8125)
+texture = ExtResource("5_se4di")

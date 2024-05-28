@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmkhux8qjxyu8"]
+
+[ext_resource type="FontFile" uid="uid://cqmxlxonew8a5" path="res://assets/fonts/Cubic_11/fonts/ttf/Cubic_11_1.100_R.ttf" id="1_x7rng"]
+[ext_resource type="Script" path="res://script/main_menu_button.gd" id="2_m3ilb"]
+[ext_resource type="AudioStream" uid="uid://claemh44niuv3" path="res://assets/audio/gameboy-pluck.mp3" id="3_204l4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_knmee"]
+
+[sub_resource type="Theme" id="Theme_2653p"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 70
+Button/fonts/font = ExtResource("1_x7rng")
+Button/styles/focus = SubResource("StyleBoxEmpty_knmee")
+
+[node name="Button" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme = SubResource("Theme_2653p")
+flat = true
+script = ExtResource("2_m3ilb")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_204l4")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
