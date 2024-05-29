@@ -1,0 +1,99 @@
+[gd_scene load_steps=14 format=3 uid="uid://bgnm4efbravf6"]
+
+[ext_resource type="Script" path="res://script/mihon.gd" id="1_dwnty"]
+[ext_resource type="Texture2D" uid="uid://rl4djlqa0eb" path="res://assets/custom/mihon_idle.png" id="1_m3o44"]
+[ext_resource type="Texture2D" uid="uid://g8xcwinvneny" path="res://assets/custom/mihon_walk.png" id="2_475ns"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ampv"]
+atlas = ExtResource("1_m3o44")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20flm"]
+atlas = ExtResource("1_m3o44")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj5ya"]
+atlas = ExtResource("2_475ns")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4w6k"]
+atlas = ExtResource("2_475ns")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsflw"]
+atlas = ExtResource("2_475ns")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5b86"]
+atlas = ExtResource("2_475ns")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw58l"]
+atlas = ExtResource("2_475ns")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cmil"]
+atlas = ExtResource("2_475ns")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7h5ym"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ampv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20flm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj5ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4w6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsflw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5b86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw58l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cmil")
+}],
+"loop": false,
+"name": &"walk",
+"speed": 15.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fdw3r"]
+radius = 4.99259
+height = 24.0
+
+[node name="Mihon" type="CharacterBody2D"]
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_dwnty")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7h5ym")
+animation = &"walk"
+autoplay = "idle"
+frame = 5
+frame_progress = 1.0
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+rotation = 1.57807
+shape = SubResource("CapsuleShape2D_fdw3r")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
