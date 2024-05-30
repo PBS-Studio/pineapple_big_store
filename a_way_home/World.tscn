@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjg4r1tcsgin7"]
+
+[ext_resource type="Texture2D" uid="uid://dknr3dciqomo2" path="res://a_way_home/survivor template/Textures/dirt_full_new.png" id="1_i5lhe"]
+[ext_resource type="PackedScene" uid="uid://bsd42ir3a14ov" path="res://a_way_home/Player/human_player.tscn" id="3_cbc15"]
+[ext_resource type="PackedScene" uid="uid://bedu5qn4i7xwc" path="res://a_way_home/Rushia ghost.tscn" id="3_oxdey"]
+[ext_resource type="PackedScene" uid="uid://dwqiml08xxeqe" path="res://a_way_home/Utility/enemy_spawner.tscn" id="4_k3hyg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhegx"]
+size = Vector2(317, 47.5)
+
+[node name="World" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("1_i5lhe")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 1000)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background"]
+position = Vector2(-89, 42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2(97.5, 41.25)
+shape = SubResource("RectangleShape2D_xhegx")
+
+[node name="Panel" type="Panel" parent="Background/StaticBody2D"]
+offset_left = -58.0
+offset_top = 22.0
+offset_right = 255.0
+offset_bottom = 62.0
+
+[node name="Rushia ghost" parent="." instance=ExtResource("3_oxdey")]
+position = Vector2(140, -53)
+
+[node name="Human_player" parent="." instance=ExtResource("3_cbc15")]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("4_k3hyg")]
