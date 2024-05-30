@@ -1,10 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://bsd42ir3a14ov"]
+[gd_scene load_steps=35 format=3 uid="uid://bsd42ir3a14ov"]
 
 [ext_resource type="Script" path="res://a_way_home/Player/human_player.gd" id="1_q6cql"]
 [ext_resource type="Texture2D" uid="uid://ch5fkct6kff4g" path="res://a_way_home/Free Version Red Sprite/Back Dash.png" id="2_031bt"]
 [ext_resource type="Texture2D" uid="uid://1b2k0vqic8hd" path="res://a_way_home/Free Version Red Sprite/Side Dash.png" id="3_6sw4r"]
 [ext_resource type="Texture2D" uid="uid://daffeqhgvyuku" path="res://a_way_home/Free Version Red Sprite/Front DashnRoll.png" id="4_o0gym"]
 [ext_resource type="Texture2D" uid="uid://d264rcgyqhwv3" path="res://a_way_home/Free Version Red Sprite/Side Movement.png" id="5_5rc8o"]
+[ext_resource type="PackedScene" uid="uid://31ggif1r7rs" path="res://a_way_home/Utility/hurt_box.tscn" id="6_vd2j2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tgfnc"]
 atlas = ExtResource("4_o0gym")
@@ -199,19 +200,60 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ubyq"]
 radius = 3.6
-height = 17.6
+height = 11.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3ear"]
+size = Vector2(9.6, 14.6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3n6qi"]
+size = Vector2(306.4, 173.2)
 
 [node name="Human_player" type="CharacterBody2D" groups=["human_player"]]
 scale = Vector2(2.5, 2.5)
 script = ExtResource("1_q6cql")
+pineapple_bomb_attackspeed = 3.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_yh2a4")
-animation = &"walk"
+animation = &"up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_1ubyq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
+
+[node name="HurtBox" parent="." instance=ExtResource("6_vd2j2")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(1.19209e-07, 2.38419e-07)
+shape = SubResource("RectangleShape2D_n3ear")
+
+[node name="Attack" type="Node2D" parent="."]
+
+[node name="Pineapple_bomb_Timer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 1.5
+
+[node name="Pineapple_attack_Timer" type="Timer" parent="Attack/Pineapple_bomb_Timer"]
+unique_name_in_owner = true
+wait_time = 0.075
+
+[node name="EnemyDetectionArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionArea"]
+position = Vector2(0.4, 0.4)
+shape = SubResource("RectangleShape2D_3n6qi")
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+[connection signal="timeout" from="Attack/Pineapple_bomb_Timer" to="." method="_on_pineapple_bomb_timer_timeout"]
+[connection signal="timeout" from="Attack/Pineapple_bomb_Timer/Pineapple_attack_Timer" to="." method="_on_pineapple_attack_timer_timeout"]
+[connection signal="body_entered" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_entered"]
+[connection signal="body_exited" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_exited"]
+
+[editable path="HurtBox"]
