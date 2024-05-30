@@ -29,17 +29,17 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"fy": "res://undertale_fight/story/fy.dch",
-"narrate": "res://undertale_fight/story/narrate.dch"
+"fy": "res://character/fy.dch",
+"narrate": "res://character/narrate.dch"
 }
 directories/dtl_directory={
-"test_timeline": "res://undertale_fight/story/test_timeline.dtl"
+"test_timeline": "res://story/test_timeline.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=[]
-layout/default_style=""
+layout/style_list=["res://theme/rpg_theme.tres"]
+layout/default_style="res://theme/rpg_theme.tres"
 variables={}
-text/letter_speed=0.01
+text/letter_speed=0.05
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
 text/autoadvance_per_character_delay=0.1
@@ -142,3 +142,7 @@ x={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Wall"
 2d_physics/layer_3="Attack"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
