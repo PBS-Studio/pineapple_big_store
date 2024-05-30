@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://vo230cs1f3c2"]
+
+[ext_resource type="Script" path="res://just_go_down/Scenes/tempfloor.gd" id="1_1eqko"]
+[ext_resource type="Texture2D" uid="uid://jva3spgg5wuy" path="res://just_go_down/Images/floor.png" id="2_yhp4c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4dxw"]
+size = Vector2(140, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vini4"]
+size = Vector2(140, 21)
+
+[node name="tempfloor" type="Area2D" groups=["tempfloor"]]
+modulate = Color(1, 1, 0.588235, 1)
+position = Vector2(-200, 100)
+script = ExtResource("1_1eqko")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.414201, 0.141176)
+texture = ExtResource("2_yhp4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_x4dxw")
+
+[node name="clearbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="clearbox"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_vini4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="clearbox" to="." method="_on_clearbox_body_entered"]

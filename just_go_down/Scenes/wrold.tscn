@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4uougra2nt13"]
+[gd_scene load_steps=13 format=3 uid="uid://b4uougra2nt13"]
 
 [ext_resource type="TileSet" uid="uid://bpqowov83si01" path="res://just_go_down/tile/big road.tres" id="1_b6dpn"]
 [ext_resource type="Script" path="res://just_go_down/Scenes/Player.gd" id="1_jlyhm"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://just_go_down/Scenes/wall.gd" id="4_lmr0e"]
 [ext_resource type="Script" path="res://just_go_down/Scenes/floor spawner.gd" id="5_qqd8o"]
 [ext_resource type="PackedScene" uid="uid://cgtyvyvhtlh2w" path="res://just_go_down/Object/trapfloor.tscn" id="7_honee"]
+[ext_resource type="PackedScene" uid="uid://vo230cs1f3c2" path="res://just_go_down/Object/tempfloor.tscn" id="8_qqn66"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mbne1"]
 size = Vector2(1158, 35)
@@ -133,6 +134,9 @@ autostart = true
 script = ExtResource("5_qqd8o")
 
 [node name="trapfloor" parent="." instance=ExtResource("7_honee")]
+position = Vector2(300, 0)
+
+[node name="tempfloor" parent="." instance=ExtResource("8_qqn66")]
 
 [connection signal="timeout" from="wall/burst" to="wall" method="_on_burst_timeout"]
 [connection signal="body_entered" from="Player/hitbox" to="Player" method="_on_hitbox_body_entered"]
