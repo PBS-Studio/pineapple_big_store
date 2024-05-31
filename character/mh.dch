@@ -8,7 +8,7 @@
 "description": "",
 "display_name": "mh",
 "mirror": false,
-"nicknames": [],
+"nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {},
 "scale": 1.0
