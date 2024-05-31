@@ -51,4 +51,4 @@ script = ExtResource("5_6kisa")
 name = "rpg_theme"
 base_overrides = {}
 layers = Array[ExtResource("2_58vgg")]([SubResource("Resource_74an0"), SubResource("Resource_yehjo"), SubResource("Resource_3qoxb")])
-metadata/_latest_layer = 1
+metadata/_latest_layer = 2
