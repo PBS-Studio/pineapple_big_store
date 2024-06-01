@@ -161,5 +161,3 @@ texture = ExtResource("7_kkvas")
 libraries = {
 "": SubResource("AnimationLibrary_fdbfa")
 }
-
-[node name="AnimationTree" type="AnimationTree" parent="."]

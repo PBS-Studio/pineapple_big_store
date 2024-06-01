@@ -30,18 +30,18 @@ func _on_attack_bar_damage(percentage):
 
 	var damage
 	if percentage >= 0.95:
-		damage = floori(player_health.remain_health as float * randf_range(1.0, 1.5))
-	damage = floori(player_health.remain_health as float * percentage)
+		damage = floori(10.0 + player_health.remain_health as float * randf_range(1.0, 1.5))
+	damage = floori((10.0 + player_health.remain_health as float) * percentage)
 	damage += randi_range(0, 5)
 
 	boss_health.take_damage(damage)
 	boss_display.play_attacked_animation()
+	
 
 
 func _on_attack_bar_attack_bar_hiding():
 	boss_turn.emit()
-	fight_player.play(fight_list[randi_range(1, fight_list.size()) - 1])
-	#fight_player.play("pineapple_rain")
+	fight_player.play(fight_list.pick_random())
 
 
 func _player_turn_menu():
