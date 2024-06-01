@@ -45,7 +45,7 @@ func gain_health(health: int):
 		return
 	
 	var old_health = remain_health
-	remain_health = max(remain_health + health, full_health)
+	remain_health = min(remain_health + health, full_health)
 
 	health_change.emit(old_health)
 	if remain_health == full_health:
