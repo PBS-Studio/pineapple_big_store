@@ -47,3 +47,5 @@ text = "   開始遊戲"
 position = Vector2(41, 42)
 scale = Vector2(1.8125, 1.8125)
 texture = ExtResource("5_se4di")
+
+[connection signal="click" from="Button" to="." method="_on_button_click"]
