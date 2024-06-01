@@ -19,9 +19,7 @@ var death_screen=preload("res://undertale_fight/scenes/death_screen.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	InventoryManager.add_item(preload("res://items/pineapple.tres"))
-	InventoryManager.add_item(preload("res://items/pineapple.tres"))
-	InventoryManager.add_item(preload("res://items/pineapple.tres"))
+	#InventoryManager.add_item(preload("res://items/pineapple.tres"))
 	_player_turn_menu()
 
 
