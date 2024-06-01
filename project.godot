@@ -24,21 +24,27 @@ config/icon="res://assets/custom/logo_large.png"
 [autoload]
 
 Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
+SceneManager="*res://addons/scene_manager/scene_manager.tscn"
+Scenes="*res://addons/scene_manager/scenes.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
 directories/dch_directory={
 "fy": "res://character/fy.dch",
+"johntitor": "res://character/johntitor.dch",
 "mh": "res://character/mh.dch",
 "narrate": "res://character/narrate.dch",
 "sl": "res://character/sl.dch"
 }
 directories/dtl_directory={
-"linearalgebra": "res://character/linearalgebra.dtl",
+"afterbattle": "res://story/afterbattle.dtl",
+"crash": "res://story/crash.dtl",
+"end": "res://story/end.dtl",
 "maintimeline": "res://story/wakeup.dtl",
 "meetfy": "res://story/meetfy.dtl",
-"pineapplerain": "res://character/pineapplerain.dtl",
+"story/linearalgebra": "res://story/linearalgebra.dtl",
+"story/pineapplerain": "res://story/pineapplerain.dtl",
 "test_timeline": "res://story/test_timeline.dtl"
 }
 glossary/default_case_sensitive=true
@@ -74,7 +80,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/GDBeautifier/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/GDBeautifier/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/scene_manager/plugin.cfg")
 
 [input]
 
