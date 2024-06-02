@@ -24,6 +24,8 @@ config/icon="res://assets/custom/logo_large.png"
 [autoload]
 
 Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
+SceneManager="*res://addons/scene_manager/scene_manager.tscn"
+Scenes="*res://addons/scene_manager/scenes.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
@@ -78,7 +80,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/GDBeautifier/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/GDBeautifier/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/scene_manager/plugin.cfg")
 
 [input]
 

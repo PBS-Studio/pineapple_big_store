@@ -15,13 +15,12 @@ const player_turn_box_position: Vector2 = Vector2(0, 110)
 @onready var fight_player = %FightPlayer
 
 var death_screen=preload("res://undertale_fight/scenes/death_screen.tscn")
-
+@onready var inventory_backup = InventoryManager.inventory
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#_on_attack_bar_attack_bar_hiding()
+	#InventoryManager.add_item(preload("res://items/pineapple.tres"))
 	_player_turn_menu()
-	pass
 
 
 func _on_attack_bar_damage(percentage):
@@ -30,18 +29,18 @@ func _on_attack_bar_damage(percentage):
 
 	var damage
 	if percentage >= 0.95:
-		damage = floori(player_health.remain_health as float * randf_range(1.0, 1.5))
-	damage = floori(player_health.remain_health as float * percentage)
+		damage = floori(10.0 + player_health.remain_health as float * randf_range(1.0, 1.5))
+	damage = floori((10.0 + player_health.remain_health as float) * percentage)
 	damage += randi_range(0, 5)
 
 	boss_health.take_damage(damage)
 	boss_display.play_attacked_animation()
+	
 
 
 func _on_attack_bar_attack_bar_hiding():
 	boss_turn.emit()
-	fight_player.play(fight_list[randi_range(1, fight_list.size()) - 1])
-	#fight_player.play("pineapple_rain")
+	fight_player.play(fight_list.pick_random())
 
 
 func _player_turn_menu():
@@ -58,6 +57,7 @@ func _on_fight_player_animation_finished(_anim_nam0e):
 
 
 func _on_player_health_bar_health_zeroed():
+	InventoryManager.inventory = inventory_backup
 	var scene = death_screen.instantiate()
 	scene.player_position = player.global_position
 	get_tree().root.add_child(scene)

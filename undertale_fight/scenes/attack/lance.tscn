@@ -1,18 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdf2b3gwowd0a"]
+[gd_scene load_steps=5 format=3 uid="uid://cdf2b3gwowd0a"]
 
+[ext_resource type="Script" path="res://undertale_fight/scripts/attack/lance.gd" id="1_cl254"]
 [ext_resource type="Texture2D" uid="uid://cs708j61bggk6" path="res://undertale_fight/assets/custom/lance.png" id="1_d6rrs"]
+[ext_resource type="AudioStream" uid="uid://b4ygeh5apatpx" path="res://undertale_fight/assets/sound/snd_arrow.wav" id="3_i6a62"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhqty"]
-size = Vector2(11, 8)
+size = Vector2(11, 25)
 
 [node name="Lance" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_cl254")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
 texture = ExtResource("1_d6rrs")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(0, -70)
+position = Vector2(0, -69)
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -6)
+position = Vector2(67.5, 69)
+rotation = 1.5708
 shape = SubResource("RectangleShape2D_yhqty")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-0.25, -3.57628e-07)
+scale = Vector2(8.275, 1.3)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_i6a62")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

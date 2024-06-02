@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UndettaleItem" load_steps=3 format=3 uid="uid://b5e80vb3kvo30"]
+[gd_resource type="Resource" script_class="UndertaleItem" load_steps=3 format=3 uid="uid://b5e80vb3kvo30"]
 
 [ext_resource type="Script" path="res://component/script/undertale_item.gd" id="1_bc51w"]
 [ext_resource type="Texture2D" uid="uid://dfaqb3o4pmu56" path="res://undertale_fight/assets/custom/pineapple_0001.png" id="1_ni3al"]
@@ -7,4 +7,5 @@
 script = ExtResource("1_bc51w")
 restore_health = 15
 id = &"pineapple"
+name = &"金鑽鳳梨"
 icon = ExtResource("1_ni3al")

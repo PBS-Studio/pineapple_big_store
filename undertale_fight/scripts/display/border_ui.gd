@@ -11,6 +11,7 @@ enum Menu{
 }
 
 @onready var audio_player = $AudioStreamPlayer
+@onready var player_health = %PlayerHealthBar
 @onready var last_press_bottom_button: Button = $"../Buttons/Fight"
 var can_back_to_last_press_bottom_button: bool = true
 
@@ -72,7 +73,12 @@ func _on_fy_selected(_id):
 	current_tab = Menu.AttackBar
 	can_back_to_last_press_bottom_button = false
 
-
+# use item
+func _on_item_menu_item_select(item:UndertaleItem):
+	current_tab = Menu.TextDisplay
+	last_press_bottom_button.grab_focus()
+	player_health.gain_health(item.restore_health)
+	
 
 #endregion
 
@@ -83,3 +89,4 @@ func _on_undertale_fight_player_turn():
 	last_press_bottom_button.grab_focus()
 	last_press_bottom_button = null
 	can_back_to_last_press_bottom_button = true
+
