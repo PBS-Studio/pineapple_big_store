@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://btj85ktwn75vv"]
+[gd_scene load_steps=7 format=3 uid="uid://btj85ktwn75vv"]
 
 [ext_resource type="Script" path="res://script/main_menu.gd" id="1_701vp"]
 [ext_resource type="Texture2D" uid="uid://d0w8pff1up6ta" path="res://assets/custom/background.png" id="1_eo460"]
 [ext_resource type="FontFile" uid="uid://cqmxlxonew8a5" path="res://assets/fonts/Cubic_11/fonts/ttf/Cubic_11_1.100_R.ttf" id="3_21q07"]
 [ext_resource type="PackedScene" uid="uid://dmkhux8qjxyu8" path="res://scenes/menu_button.tscn" id="4_itupk"]
 [ext_resource type="Texture2D" uid="uid://b6fvygtivupwn" path="res://undertale_fight/assets/custom/pineapple_piece.png" id="5_se4di"]
+[ext_resource type="AudioStream" uid="uid://2ub8gaxdtwy8" path="res://assets/audio/school by Toby Fox.mp3" id="6_lnw6o"]
 
 [node name="MainMenu" type="Node2D"]
 texture_filter = 1
@@ -47,5 +48,9 @@ text = "   開始遊戲"
 position = Vector2(41, 42)
 scale = Vector2(1.8125, 1.8125)
 texture = ExtResource("5_se4di")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_lnw6o")
+autoplay = true
 
 [connection signal="click" from="Button" to="." method="_on_button_click"]
