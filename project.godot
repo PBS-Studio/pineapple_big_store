@@ -25,10 +25,7 @@ config/icon="res://assets/custom/logo_large.png"
 
 Bgm="*res://component/bgm.tscn"
 RpgManager="*res://component/script/rpg_manager.gd"
-Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-SceneManager="*res://addons/scene_manager/scene_manager.tscn"
-Scenes="*res://addons/scene_manager/scenes.gd"
 
 [dialogic]
 
@@ -43,11 +40,11 @@ directories/dtl_directory={
 "afterbattle": "res://story/afterbattle.dtl",
 "crash": "res://story/crash.dtl",
 "end": "res://story/end.dtl",
-"maintimeline": "res://story/wakeup.dtl",
+"linear_algebra": "res://story/linearalgebra.dtl",
 "meetfy": "res://story/meetfy.dtl",
-"story/linearalgebra": "res://story/linearalgebra.dtl",
-"story/pineapplerain": "res://story/pineapplerain.dtl",
-"test_timeline": "res://story/test_timeline.dtl"
+"pineapple_rain": "res://story/pineapplerain.dtl",
+"test_timeline": "res://story/test_timeline.dtl",
+"wakeup": "res://story/wakeup.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://theme/rpg_theme.tres"]
