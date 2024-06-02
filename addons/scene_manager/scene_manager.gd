@@ -45,7 +45,9 @@ class GeneralOptions:
 func _set_current_scene() -> void:
 	var root_key: String = get_tree().current_scene.scene_file_path
 	_current_scene = _get_scene_key_by_value(root_key)
-	assert (_current_scene != "", "Scene Manager Error: loaded scene is not defined in scene manager tool, to fix this, on Scene Manager UI panel, just once click on refresh and then save buttons.")
+	if _current_scene == "":
+		push_warning("Scene Manager Error: loaded scene is not defined in scene manager tool, to fix this, on Scene Manager UI panel, just once click on refresh and then save buttons.")
+	#assert (_current_scene != "", "Scene Manager Error: loaded scene is not defined in scene manager tool, to fix this, on Scene Manager UI panel, just once click on refresh and then save buttons.")
 
 # gets patterns from `addons/scene_manager/shader_patterns`
 func _get_patterns() -> void:
