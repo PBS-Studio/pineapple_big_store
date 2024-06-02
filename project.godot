@@ -23,8 +23,11 @@ config/icon="res://assets/custom/logo_large.png"
 
 [autoload]
 
-Bgm="*res://component/bgm.tscn"
 RpgManager="*res://component/script/rpg_manager.gd"
+Bgm="*res://component/bgm.tscn"
+Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
+SceneManager="*res://addons/scene_manager/scene_manager.tscn"
+Scenes="*res://addons/scene_manager/scenes.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
@@ -67,6 +70,7 @@ choices/reveal_delay=0
 choices/reveal_by_input=false
 text/autopauses={}
 text/advance_delay=0.1
+text/autoskip_time_per_event=0.0
 
 [display]
 
