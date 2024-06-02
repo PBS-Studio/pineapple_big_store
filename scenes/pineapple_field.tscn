@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://bhwk6ng1qyc0e"]
+[gd_scene load_steps=21 format=3 uid="uid://bhwk6ng1qyc0e"]
 
+[ext_resource type="Script" path="res://script/pineapple_field.gd" id="1_01hb0"]
 [ext_resource type="Texture2D" uid="uid://b40yv2b6cfng0" path="res://assets/tilemap/interior/interior.png" id="1_7vkbu"]
 [ext_resource type="Texture2D" uid="uid://bdrn7yavtbasy" path="res://assets/tilemap/nature free/global.png" id="2_otip8"]
 [ext_resource type="Texture2D" uid="uid://d2x8xnv7jpu4t" path="res://assets/tilemap/TopDownFantasy-Forest/Tiles/Tileset.png" id="3_bpeir"]
@@ -335,6 +336,7 @@ sources/7 = SubResource("TileSetAtlasSource_4a6eb")
 
 [node name="PineaplleField" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_01hb0")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
