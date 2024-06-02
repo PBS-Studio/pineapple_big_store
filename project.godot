@@ -25,6 +25,9 @@ config/icon="res://assets/custom/logo_large.png"
 
 Bgm="*res://component/bgm.tscn"
 RpgManager="*res://component/script/rpg_manager.gd"
+Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
+SceneManager="*res://addons/scene_manager/scene_manager.tscn"
+Scenes="*res://addons/scene_manager/scenes.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]

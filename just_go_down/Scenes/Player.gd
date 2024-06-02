@@ -32,6 +32,7 @@ func _physics_process(delta):
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("Wall"):
 		#EndMenu.visible = true
+		get_tree().change_scene_to_file("res://just_go_down/Scenes/end_menu.tscn")
 		queue_free()
 	elif body.is_in_group("floor"):
 		velocity.y = 0
