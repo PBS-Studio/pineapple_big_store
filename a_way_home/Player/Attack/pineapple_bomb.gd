@@ -4,14 +4,16 @@ extends Area2D
 var level=1
 var hp=1 #設定bomb的生命值，打中敵人就hp minus 1
 var speed=100
-var damage=5
-var knock_amount=100 #该对象的击退量，初始值为100
+var damage=5 #攻擊力，減血量
+var knockback_amount=100 #该对象的击退量，初始值为100
 var attack_size=1.0 #该对象的攻击范围，初始值为1.0
 
 var target=Vector2.ZERO
 var angle=Vector2.ZERO
 
 @onready var player=get_tree().get_first_node_in_group("human_player")
+signal  remove_from_array(object)
+
 @onready var anim=$AnimatedSprite2D
 
 func _ready():
@@ -24,7 +26,7 @@ func _ready():
 			var hp=1
 			var speed=100
 			var damage=5
-			var  knock_amount=100
+			var knockback_amount=100
 			var attack_size=1.0
 			
 	var tween =create_tween()
@@ -42,6 +44,7 @@ func enemy_hit(charge = 1):
 	hp -= charge
 	print("pineapple hp", hp)
 	#if hp<=0:
+		#emit_signal("remove_from_array",self) #發送刪除該bomb的訊號
 		#queue_free()
 		
 func _on_animated_sprite_2d_animation_finished():
@@ -50,4 +53,5 @@ func _on_animated_sprite_2d_animation_finished():
 
 
 func _on_timer_timeout():
+	emit_signal("remove_from_array",self) #發送刪除該bomb的訊號	
 	queue_free()

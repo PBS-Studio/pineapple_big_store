@@ -24,6 +24,6 @@ texture = ExtResource("2_8o5du")
 motion_scale = Vector2(0, 0)
 
 [node name="GameCover" type="Sprite2D" parent="ParallaxLayer2"]
-position = Vector2(495, 282)
+position = Vector2(418, 281)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_3lovt")

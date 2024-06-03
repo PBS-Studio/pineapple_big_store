@@ -13,7 +13,7 @@ var pineapple_bomb=preload("res://a_way_home/Player/Attack/pineapple_bomb.tscn")
 
 #Pineapple_bomb
 var pineapple_bomb_ammo=0
-var pineapple_bomb_baseammo=3
+var pineapple_bomb_baseammo=1
 @export var pineapple_bomb_attackspeed=1.5 #設定攻擊間隔
 var pineapple_bome_level=1
 
@@ -60,7 +60,7 @@ func attack():
 		if pineapple_bomb_Timer.is_stopped():
 			pineapple_bomb_Timer.start()
 
-func _on_hurt_box_hurt(damage):
+func _on_hurt_box_hurt(damage, _angle, _knockback): # 參數加上 "_" 告訴自己目前沒用到這個參數
 	hp-=damage
 	print(hp)
 

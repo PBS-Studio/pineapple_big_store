@@ -5,7 +5,7 @@ extends Node2D
 
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://a_way_home/World/World.tscn")
+	get_tree().change_scene_to_file("res://a_way_home/World.tscn")
 
 
 
