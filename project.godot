@@ -28,8 +28,8 @@ Bgm="*res://component/bgm.tscn"
 Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 SceneManager="*res://addons/scene_manager/scene_manager.tscn"
 Scenes="*res://addons/scene_manager/scenes.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 InventoryManager="*res://component/script/inventory_manager.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
