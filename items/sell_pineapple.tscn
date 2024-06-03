@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://fqhc8i0q0rp"]
+
+[ext_resource type="Script" path="res://script/sell_pineapple.gd" id="1_xi74b"]
+[ext_resource type="Texture2D" uid="uid://dfaqb3o4pmu56" path="res://undertale_fight/assets/custom/pineapple_0001.png" id="2_dl04q"]
+[ext_resource type="PackedScene" uid="uid://lhm52vkl8d36" path="res://component/interact_area.tscn" id="3_olxca"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ti6u"]
+radius = 53.0
+
+[node name="SellPineapple" type="Node2D"]
+script = ExtResource("1_xi74b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_dl04q")
+offset = Vector2(0, -12)
+
+[node name="InteractArea" parent="." instance=ExtResource("3_olxca")]
+
+[node name="Marker2D" type="Marker2D" parent="InteractArea"]
+position = Vector2(0, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+shape = SubResource("CircleShape2D_3ti6u")
+
+[connection signal="interact" from="InteractArea" to="." method="_on_interact_area_interact"]
