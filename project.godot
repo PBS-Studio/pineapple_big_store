@@ -29,6 +29,7 @@ Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 SceneManager="*res://addons/scene_manager/scene_manager.tscn"
 Scenes="*res://addons/scene_manager/scenes.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+InventoryManager="*res://component/script/inventory_manager.gd"
 
 [dialogic]
 
@@ -41,8 +42,11 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "afterbattle": "res://story/afterbattle.dtl",
+"buy_pineapple": "res://story/buy_pineapple.dtl",
 "crash": "res://story/crash.dtl",
 "end": "res://story/end.dtl",
+"isekaiafter": "res://story/isekaiafter.dtl",
+"isekaistart": "res://story/isekaistart.dtl",
 "linear_algebra": "res://story/linearalgebra.dtl",
 "meetfy": "res://story/meetfy.dtl",
 "pineapple_rain": "res://story/pineapplerain.dtl",
