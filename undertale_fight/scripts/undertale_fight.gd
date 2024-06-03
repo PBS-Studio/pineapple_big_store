@@ -19,7 +19,7 @@ var death_screen=preload("res://undertale_fight/scenes/death_screen.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#InventoryManager.add_item(preload("res://items/pineapple.tres"))
+	Bgm.stream_paused = true
 	_player_turn_menu()
 
 
@@ -63,3 +63,8 @@ func _on_player_health_bar_health_zeroed():
 	get_tree().root.add_child(scene)
 	get_tree().current_scene = scene
 	queue_free()
+
+
+func _on_boss_health_bar_health_zeroed():
+	Bgm.stream_paused = false
+	# todo

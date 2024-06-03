@@ -1,0 +1,144 @@
+[gd_scene load_steps=14 format=3 uid="uid://cl18h4d5aihjw"]
+
+[ext_resource type="Texture2D" uid="uid://c27y53oaly4du" path="res://assets/tilemap/SpriteStack_Cars/RedMotorcycle.png" id="1_2mwxm"]
+[ext_resource type="Script" path="res://script/motorcycle.gd" id="1_4j4hr"]
+[ext_resource type="Texture2D" uid="uid://rl4djlqa0eb" path="res://assets/custom/mihon_idle.png" id="2_qse3h"]
+[ext_resource type="Texture2D" uid="uid://g8xcwinvneny" path="res://assets/custom/mihon_walk.png" id="3_1ralg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gic7i"]
+atlas = ExtResource("2_qse3h")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocb2b"]
+atlas = ExtResource("2_qse3h")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5om8"]
+atlas = ExtResource("3_1ralg")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2aoa"]
+atlas = ExtResource("3_1ralg")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1h0b"]
+atlas = ExtResource("3_1ralg")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1ds8"]
+atlas = ExtResource("3_1ralg")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj3pa"]
+atlas = ExtResource("3_1ralg")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3seo"]
+atlas = ExtResource("3_1ralg")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uomq0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gic7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocb2b")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5om8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2aoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1h0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1ds8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj3pa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3seo")
+}],
+"loop": false,
+"name": &"walk",
+"speed": 15.0
+}]
+
+[node name="Motorcycle" type="Node2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_4j4hr")
+
+[node name="1" type="Sprite2D" parent="."]
+texture = ExtResource("1_2mwxm")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="2" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("1_2mwxm")
+region_enabled = true
+region_rect = Rect2(32, 0, 16, 16)
+
+[node name="3" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("1_2mwxm")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="4" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
+texture = ExtResource("1_2mwxm")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="5" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("1_2mwxm")
+region_enabled = true
+region_rect = Rect2(80, 0, 16, 16)
+
+[node name="6" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+texture = ExtResource("1_2mwxm")
+region_enabled = true
+region_rect = Rect2(96, 0, 16, 16)
+
+[node name="Mihon" type="Node2D" parent="."]
+visible = false
+position = Vector2(0, -5)
+scale = Vector2(1, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Mihon"]
+position = Vector2(0, -1.19209e-07)
+rotation = 1.52475
+scale = Vector2(0.19451, 0.19451)
+sprite_frames = SubResource("SpriteFrames_uomq0")
+animation = &"idle"
+
+[node name="7" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+texture = ExtResource("1_2mwxm")
+region_enabled = true
+region_rect = Rect2(112, 0, 16, 16)
+
+[node name="8" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+texture = ExtResource("1_2mwxm")
+region_enabled = true
+region_rect = Rect2(128, 0, 16, 16)
+
+[node name="9" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_2mwxm")
+region_enabled = true
+region_rect = Rect2(144, 0, 16, 16)
