@@ -43,6 +43,8 @@ directories/dtl_directory={
 "afterbattle": "res://story/afterbattle.dtl",
 "crash": "res://story/crash.dtl",
 "end": "res://story/end.dtl",
+"isekaiafter": "res://story/isekaiafter.dtl",
+"isekaistart": "res://story/isekaistart.dtl",
 "linear_algebra": "res://story/linearalgebra.dtl",
 "meetfy": "res://story/meetfy.dtl",
 "pineapple_rain": "res://story/pineapplerain.dtl",
