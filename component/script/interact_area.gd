@@ -1,15 +1,28 @@
 extends Area2D
-class_name InteractArea
 
 @export var active: bool = true
+
+var indicator: bool:
+	get:
+		if is_node_ready():
+			return $Arrow.visible
+		return false
+	set(value):
+		if is_node_ready():
+			$Arrow.visible = value
+
 signal interact
 
+func _ready():
+	$Arrow.global_position = $Marker2D.global_position	
 
-func _on_area_entered(_node: Node2D) -> void:
+
+func _on_body_entered(_node: Node2D) -> void:
 	if active:
 		InteractManager.regist_interact(self)
 
 
-func _on_area_exited(_node: Node2D) -> void:
+func _on_body_exited(_node: Node2D) -> void:
 	if active:
 		InteractManager.unregist_interact(self)
+		indicator = false

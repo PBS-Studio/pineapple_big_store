@@ -1,24 +1,34 @@
 class_name InteractManager
 
-static var interact_areas: Array[InteractArea] = []
+static var interact_areas: Array[Area2D] = []
 
 
-static func regist_interact(area: InteractArea) -> void:
+static func regist_interact(area: Area2D) -> void:
 	interact_areas.push_back(area)
 
 
-static func unregist_interact(area: InteractArea) -> void:
+static func unregist_interact(area: Area2D) -> void:
 	interact_areas.erase(area)
 
 
-static func on_input(player: Node2D) -> void:
-	interact_areas.sort_custom(sort_by_distance.bind(player.global_position))
-	var nearest_area: InteractArea = interact_areas.filter(func(area): return area.active).front()
+static func update_indicator(global_position: Vector2) -> void:
+	for area in interact_areas:
+		area.indicator = false
+
+	var nearest_area: Area2D = get_nearest_interact(global_position)
+	if nearest_area != null:
+		nearest_area.indicator = true
+
+
+static func get_nearest_interact(global_position: Vector2) -> Area2D:
+	interact_areas.sort_custom(func(a, b): return a.global_position.distance_squared_to(global_position) < b.global_position.distance_squared_to(global_position))
+	var nearest_area: Area2D = interact_areas.filter(func(area): return area.active).front()
+	return nearest_area
+
+
+static func interact() -> void:
+	var nearest_area: Area2D = interact_areas.front()
 	if nearest_area == null:
 		return
 
 	nearest_area.interact.emit()
-
-
-func sort_by_distance(player_position: Vector2, a: InteractArea, b: InteractArea) -> bool:
-	return a.global_position.distance_squared_to(player_position) < b.global_position.distance_squared_to(player_position)
