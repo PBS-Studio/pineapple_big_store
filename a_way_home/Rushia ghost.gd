@@ -20,6 +20,7 @@ var player_detection=0
 var death_anim=preload("res://a_way_home/Enemies/explosion.tscn")
 
 func _ready():
+	Bgm.stream_paused=true
 	if player == null:
 		print("Error: Player node is not found!")
 	if anim == null:

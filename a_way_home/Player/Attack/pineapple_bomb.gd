@@ -12,7 +12,7 @@ var target=Vector2.ZERO
 var angle=Vector2.ZERO
 
 @onready var player=get_tree().get_first_node_in_group("human_player")
-signal  remove_from_array(object)
+signal  remove_from_array(object) #自訂一個信號remove_from_array
 
 @onready var anim=$AnimatedSprite2D
 
