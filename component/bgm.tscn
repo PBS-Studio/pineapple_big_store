@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://5owcv5te4tqf"]
+
+[ext_resource type="AudioStream" uid="uid://dv6xyosg3uwae" path="res://assets/audio/Shop by Luke Pickman.mp3" id="1_o10ox"]
+
+[node name="RpgManager" type="AudioStreamPlayer"]
+stream = ExtResource("1_o10ox")
+autoplay = true

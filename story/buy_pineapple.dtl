@@ -1,0 +1,6 @@
+narrate: 鳳梨伯的大鳳梨，一顆 50 圓
+- 購買
+	[signal arg="buy_pineapple"]
+	narrate: 獲得「金鑽鳳梨」
+- 取消
+	[signal arg="cancel_buy"]

@@ -7,6 +7,7 @@
 size = Vector2(120, 30)
 
 [node name="trapfloor" type="Area2D"]
+scale = Vector2(1.2, 1.2)
 script = ExtResource("1_o6k5f")
 metadata/_edit_group_ = true
 

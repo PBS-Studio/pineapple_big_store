@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DialogicStyle" load_steps=9 format=3 uid="uid://bkag5b2pxolj1"]
 
-[ext_resource type="PackedScene" uid="uid://by6waso0mjpjp" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_SpeakerPortraitTextbox/textbox_with_speaker_portrait.tscn" id="1_xhlvq"]
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_58vgg"]
+[ext_resource type="PackedScene" uid="uid://16jm3e6ufs2o" path="res://theme/TextboxWithPortrait/custom_textbox_with_speaker_portrait.tscn" id="3_65su7"]
 [ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="3_koeea"]
 [ext_resource type="PackedScene" uid="uid://dhk6j6eb6e3q" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.tscn" id="4_0rgkd"]
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="5_6kisa"]
@@ -13,7 +13,7 @@ overrides = {}
 
 [sub_resource type="Resource" id="Resource_yehjo"]
 script = ExtResource("2_58vgg")
-scene = ExtResource("1_xhlvq")
+scene = ExtResource("3_65su7")
 overrides = {
 "box_modulate_custom_color": "Color(0.745098, 0.6, 0.105882, 1)",
 "box_modulate_global_color": "false",
@@ -43,7 +43,10 @@ overrides = {
 "font_custom": "\"res://assets/fonts/Cubic_11/fonts/ttf/Cubic_11_1.100_R.ttf\"",
 "font_size_custom": "30.0",
 "font_size_use_global": "false",
-"font_use_global": "false"
+"font_use_global": "false",
+"sounds_focus": "\"res://assets/audio/gameboy-pluck.mp3\"",
+"sounds_hover": "\"res://assets/audio/gameboy-pluck.mp3\"",
+"sounds_pressed": "\"res://assets/audio/gameboy-pluck.mp3\""
 }
 
 [resource]
@@ -51,4 +54,4 @@ script = ExtResource("5_6kisa")
 name = "rpg_theme"
 base_overrides = {}
 layers = Array[ExtResource("2_58vgg")]([SubResource("Resource_74an0"), SubResource("Resource_yehjo"), SubResource("Resource_3qoxb")])
-metadata/_latest_layer = 1
+metadata/_latest_layer = 2

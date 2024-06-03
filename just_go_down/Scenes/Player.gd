@@ -24,7 +24,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if Input.is_action_pressed("ui_accept"):
-		velocity.x = direction * SPEED * 6
+		velocity.x = direction * SPEED * 5
 
 	move_and_slide()
 
@@ -32,6 +32,7 @@ func _physics_process(delta):
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("Wall"):
 		#EndMenu.visible = true
+		get_tree().change_scene_to_file("res://just_go_down/Scenes/end_menu.tscn")
 		queue_free()
 	elif body.is_in_group("floor"):
 		velocity.y = 0
