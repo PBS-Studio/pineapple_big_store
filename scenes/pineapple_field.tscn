@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bhwk6ng1qyc0e"]
+[gd_scene load_steps=24 format=3 uid="uid://bhwk6ng1qyc0e"]
 
 [ext_resource type="Script" path="res://script/pineapple_field.gd" id="1_01hb0"]
 [ext_resource type="Texture2D" uid="uid://b40yv2b6cfng0" path="res://assets/tilemap/interior/interior.png" id="1_7vkbu"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dwq8c6yf2tawx" path="res://assets/custom/pineapple_plant.png" id="6_p07mg"]
 [ext_resource type="PackedScene" uid="uid://bgnm4efbravf6" path="res://scenes/mihon.tscn" id="7_nrvd4"]
 [ext_resource type="PackedScene" uid="uid://fqhc8i0q0rp" path="res://items/sell_pineapple.tscn" id="9_qx45k"]
+[ext_resource type="PackedScene" uid="uid://1k4dunqmi48q" path="res://scenes/ride_motorcycle.tscn" id="10_hker1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w0jol"]
 texture = ExtResource("1_7vkbu")
@@ -975,5 +976,9 @@ position = Vector2(199, -149)
 z_index = 1
 y_sort_enabled = true
 position = Vector2(184, -149)
+
+[node name="RideMotorcycle" parent="." instance=ExtResource("10_hker1")]
+position = Vector2(-111, 159)
+rotation_3d = 0.436407
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
