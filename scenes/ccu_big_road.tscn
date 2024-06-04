@@ -4,6 +4,12 @@
 
 [node name="ccu_big_road" type="Node2D"]
 
+[node name="exitcollegeroad" type="Marker2D" parent="."]
+position = Vector2(248, 723)
+
+[node name="gocorridor" type="Marker2D" parent="."]
+position = Vector2(248, 16)
+
 [node name="CCU big road" type="TileMap" parent="."]
 tile_set = ExtResource("1_wgb5b")
 format = 2
@@ -16,9 +22,3 @@ layer_3/name = "air object"
 layer_3/tile_data = PackedInt32Array()
 layer_4/name = "airair object"
 layer_4/tile_data = PackedInt32Array()
-
-[node name="exitcollegeroad" type="Marker2D" parent="CCU big road"]
-position = Vector2(248, 723)
-
-[node name="gocorridor" type="Marker2D" parent="CCU big road"]
-position = Vector2(248, 16)
