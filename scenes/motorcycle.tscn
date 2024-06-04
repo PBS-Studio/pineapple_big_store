@@ -77,46 +77,53 @@ animations = [{
 [node name="Motorcycle" type="Node2D"]
 scale = Vector2(5, 5)
 script = ExtResource("1_4j4hr")
+rotation_3d = -3.14159
+mihon_visible = true
 
 [node name="1" type="Sprite2D" parent="."]
+rotation = -3.14159
 texture = ExtResource("1_2mwxm")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
 [node name="2" type="Sprite2D" parent="."]
 position = Vector2(0, -1)
+rotation = -3.14159
 texture = ExtResource("1_2mwxm")
 region_enabled = true
 region_rect = Rect2(32, 0, 16, 16)
 
 [node name="3" type="Sprite2D" parent="."]
 position = Vector2(0, -2)
+rotation = -3.14159
 texture = ExtResource("1_2mwxm")
 region_enabled = true
 region_rect = Rect2(48, 0, 16, 16)
 
 [node name="4" type="Sprite2D" parent="."]
 position = Vector2(0, -3)
+rotation = -3.14159
 texture = ExtResource("1_2mwxm")
 region_enabled = true
 region_rect = Rect2(64, 0, 16, 16)
 
 [node name="5" type="Sprite2D" parent="."]
 position = Vector2(0, -4)
+rotation = -3.14159
 texture = ExtResource("1_2mwxm")
 region_enabled = true
 region_rect = Rect2(80, 0, 16, 16)
 
 [node name="6" type="Sprite2D" parent="."]
 position = Vector2(0, -5)
+rotation = -3.14159
 texture = ExtResource("1_2mwxm")
 region_enabled = true
 region_rect = Rect2(96, 0, 16, 16)
 
 [node name="Mihon" type="Node2D" parent="."]
-visible = false
 position = Vector2(0, -5)
-scale = Vector2(1, 1)
+rotation = -3.14159
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Mihon"]
 position = Vector2(0, -1.19209e-07)
@@ -127,18 +134,21 @@ animation = &"idle"
 
 [node name="7" type="Sprite2D" parent="."]
 position = Vector2(0, -6)
+rotation = -3.14159
 texture = ExtResource("1_2mwxm")
 region_enabled = true
 region_rect = Rect2(112, 0, 16, 16)
 
 [node name="8" type="Sprite2D" parent="."]
 position = Vector2(0, -7)
+rotation = -3.14159
 texture = ExtResource("1_2mwxm")
 region_enabled = true
 region_rect = Rect2(128, 0, 16, 16)
 
 [node name="9" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
+rotation = -3.14159
 texture = ExtResource("1_2mwxm")
 region_enabled = true
 region_rect = Rect2(144, 0, 16, 16)
