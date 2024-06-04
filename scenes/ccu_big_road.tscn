@@ -16,4 +16,4 @@ layer_4/name = "airair object"
 layer_4/tile_data = PackedInt32Array()
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(13, 895)
+position = Vector2(241, 723)

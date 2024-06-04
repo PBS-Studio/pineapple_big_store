@@ -6,13 +6,22 @@ extends CharacterBody2D
 var score = 0
 
 func _ready():
+	Bgm.stream_paused = true
 	velocity.y = 100 
 	update_score()
+	
+func completegame():
+	Bgm.stream_paused = false
+	get_tree().change_scene_to_file("res://scenes/ccu_big_road.tscn")
 
 func update_score():
 	$Label.text = str(floori(score))
 
 func _physics_process(delta):
+	if score >= 100.0:
+		completegame()
+	if Input.is_action_just_pressed("p"):
+		completegame()
 	# Add the gravity.
 	score += delta
 	update_score()
