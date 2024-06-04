@@ -123,7 +123,6 @@ region_rect = Rect2(96, 0, 16, 16)
 
 [node name="Mihon" type="Node2D" parent="."]
 position = Vector2(0, -5)
-rotation = -3.14159
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Mihon"]
 position = Vector2(0, -1.19209e-07)

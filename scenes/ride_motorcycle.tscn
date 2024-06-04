@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://1k4dunqmi48q"]
+
+[ext_resource type="Script" path="res://script/ride_motorcycle.gd" id="1_ilrpo"]
+[ext_resource type="PackedScene" uid="uid://cl18h4d5aihjw" path="res://scenes/motorcycle.tscn" id="2_jv7uq"]
+[ext_resource type="PackedScene" uid="uid://lhm52vkl8d36" path="res://component/interact_area.tscn" id="3_xxvkk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e7a83"]
+radius = 84.0536
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o6k53"]
+radius = 13.0
+height = 42.0
+
+[node name="RideMotorcycle" type="Node2D"]
+script = ExtResource("1_ilrpo")
+
+[node name="Motorcycle" parent="." instance=ExtResource("2_jv7uq")]
+scale = Vector2(3.5, 3.5)
+
+[node name="InteractArea" parent="." instance=ExtResource("3_xxvkk")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+shape = SubResource("CircleShape2D_e7a83")
+
+[node name="Marker2D" type="Marker2D" parent="InteractArea"]
+position = Vector2(0, -57)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="MotorcycleCollision" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_o6k53")
+
+[connection signal="interact" from="InteractArea" to="." method="_on_interact_area_interact"]

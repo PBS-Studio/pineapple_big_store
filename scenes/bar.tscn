@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://f5tsvucablgu"]
+[gd_scene load_steps=4 format=3 uid="uid://f5tsvucablgu"]
 
 [ext_resource type="TileSet" uid="uid://bpqowov83si01" path="res://just_go_down/tile/big road.tres" id="1_tfqop"]
 
+[sub_resource type="Gradient" id="Gradient_c2iv2"]
+offsets = PackedFloat32Array(0, 0.631148)
+colors = PackedColorArray(0.967213, 0.967213, 0.967213, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bh74j"]
+gradient = SubResource("Gradient_c2iv2")
+fill = 1
+fill_from = Vector2(0.517094, 0.504274)
+
 [node name="bar" type="TileMap"]
+modulate = Color(0.345098, 0.301961, 0.223529, 1)
 tile_set = ExtResource("1_tfqop")
 format = 2
 layer_0/name = "ground"
@@ -16,3 +26,47 @@ layer_3/tile_data = PackedInt32Array(851970, 786439, 74, 851971, 851975, 74, 851
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(262, 176)
+
+[node name="Light" type="Node" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="Light"]
+position = Vector2(311, 164)
+scale = Vector2(2.59766, 2.59766)
+color = Color(0.741176, 0.411765, 0.0666667, 1)
+texture = SubResource("GradientTexture2D_bh74j")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Light"]
+position = Vector2(167.969, 120.969)
+scale = Vector2(2.03223, 2.03223)
+color = Color(0.741176, 0.411765, 0.0666667, 1)
+texture = SubResource("GradientTexture2D_bh74j")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Light"]
+position = Vector2(167.969, 215.969)
+scale = Vector2(2.03223, 2.03223)
+color = Color(0.741176, 0.411765, 0.0666667, 1)
+texture = SubResource("GradientTexture2D_bh74j")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Light"]
+position = Vector2(167.969, 170.969)
+scale = Vector2(2.03223, 2.03223)
+color = Color(0.741176, 0.411765, 0.0666667, 1)
+texture = SubResource("GradientTexture2D_bh74j")
+
+[node name="PointLight2D5" type="PointLight2D" parent="Light"]
+position = Vector2(70.9688, 120.969)
+scale = Vector2(2.03223, 2.03223)
+color = Color(0.741176, 0.411765, 0.0666667, 1)
+texture = SubResource("GradientTexture2D_bh74j")
+
+[node name="PointLight2D6" type="PointLight2D" parent="Light"]
+position = Vector2(70.9688, 215.969)
+scale = Vector2(2.03223, 2.03223)
+color = Color(0.741176, 0.411765, 0.0666667, 1)
+texture = SubResource("GradientTexture2D_bh74j")
+
+[node name="PointLight2D7" type="PointLight2D" parent="Light"]
+position = Vector2(70.9688, 170.969)
+scale = Vector2(2.03223, 2.03223)
+color = Color(0.741176, 0.411765, 0.0666667, 1)
+texture = SubResource("GradientTexture2D_bh74j")
