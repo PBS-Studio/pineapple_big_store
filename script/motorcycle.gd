@@ -1,7 +1,7 @@
 @tool
 extends Node2D
 
-@export_range( - PI, PI) var rotation_3d: float = 0:
+@export_range( -PI, PI) var rotation_3d: float = 0:
 	set(value):
 		rotation_3d = value
 		if is_node_ready():
