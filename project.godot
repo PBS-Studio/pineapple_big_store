@@ -167,6 +167,10 @@ p={
 2d_physics/layer_2="Wall"
 2d_physics/layer_3="Attack"
 
+[memory]
+
+limits/message_queue/max_size_mb=64
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
