@@ -930,7 +930,7 @@ position = Vector2(-1.42857, 0)
 zoom = Vector2(3, 3)
 limit_left = -256
 limit_top = -240
-limit_right = 263
+limit_right = 303
 limit_bottom = 224
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -955,12 +955,12 @@ rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_v8rc1")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(300, 0)
+position = Vector2(396, 0)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_8tqhe")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(285, 0)
+position = Vector2(377, 0)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
