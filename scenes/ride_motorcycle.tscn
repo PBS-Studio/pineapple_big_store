@@ -16,6 +16,7 @@ script = ExtResource("1_ilrpo")
 
 [node name="Motorcycle" parent="." instance=ExtResource("2_jv7uq")]
 scale = Vector2(3.5, 3.5)
+mihon_visible = false
 
 [node name="InteractArea" parent="." instance=ExtResource("3_xxvkk")]
 
