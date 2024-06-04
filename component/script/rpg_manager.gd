@@ -19,6 +19,9 @@ func change_scene_and_tp(scene: String, target: NodePath):
 	var node = SceneManager.create_scene_instance(scene)
 	var target_node = node.get_node(target) as Marker2D
 	var mihon = get_tree().current_scene.get_node("Mihon") as CharacterBody2D
+
+	mihon.reparent(target_node.get_parent())	
+	mihon.global_position = target_node.global_position
 	
 	var camera = mihon.get_node("Camera2D") as Camera2D
 	var limit = [-10000000, -10000000, 10000000, 10000000]
@@ -28,9 +31,8 @@ func change_scene_and_tp(scene: String, target: NodePath):
 	camera.limit_top = limit[1]
 	camera.limit_right = limit[2]
 	camera.limit_bottom = limit[3]
+	camera.reset_smoothing()
 	
-	mihon.reparent(target_node.get_parent())
-	mihon.global_position = target_node.global_position
 	SceneManager.change_scene(node, in_options, out_options, general_options)
 
 
