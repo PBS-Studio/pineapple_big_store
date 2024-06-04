@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://147ri3gd13gx"]
+[gd_scene load_steps=7 format=3 uid="uid://147ri3gd13gx"]
 
 [ext_resource type="TileSet" uid="uid://bpqowov83si01" path="res://just_go_down/tile/big road.tres" id="1_7c8d0"]
 [ext_resource type="Script" path="res://script/little_road.gd" id="1_gacbl"]
@@ -8,6 +8,9 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pkl8u"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wyqti"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwg8k"]
+size = Vector2(16, 117)
 
 [node name="little road" type="Node2D"]
 script = ExtResource("1_gacbl")
@@ -53,6 +56,14 @@ rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_wyqti")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(2050, 264)
+position = Vector2(2118, 264)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_wyqti")
+
+[node name="PineappleField" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PineappleField"]
+position = Vector2(2110, 259.5)
+shape = SubResource("RectangleShape2D_mwg8k")
+
+[connection signal="body_entered" from="PineappleField" to="." method="_on_pineapple_field_body_entered"]

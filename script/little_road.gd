@@ -10,3 +10,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_pineapple_field_body_entered(_body):
+	RpgManager.change_scene_and_tp("pineapple_field", "ExitLittleRoad")
