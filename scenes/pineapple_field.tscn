@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dwq8c6yf2tawx" path="res://assets/custom/pineapple_plant.png" id="6_p07mg"]
 [ext_resource type="PackedScene" uid="uid://bgnm4efbravf6" path="res://scenes/mihon.tscn" id="7_nrvd4"]
 [ext_resource type="PackedScene" uid="uid://fqhc8i0q0rp" path="res://items/sell_pineapple.tscn" id="9_qx45k"]
-[ext_resource type="PackedScene" path="res://scenes/ride_motorcycle.tscn" id="10_hker1"]
+[ext_resource type="PackedScene" uid="uid://1k4dunqmi48q" path="res://scenes/ride_motorcycle.tscn" id="10_hker1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w0jol"]
 texture = ExtResource("1_7vkbu")
