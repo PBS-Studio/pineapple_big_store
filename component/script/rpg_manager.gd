@@ -22,6 +22,8 @@ func change_scene_and_tp(scene: String, target: NodePath):
 
 	mihon.reparent(target_node.get_parent())	
 	mihon.global_position = target_node.global_position
+	mihon.velocity = mihon.velocity.rotated(target_node.rotation)
+	mihon.motorcycle_direction += target_node.rotation
 	
 	var camera = mihon.get_node("Camera2D") as Camera2D
 	var limit = [-10000000, -10000000, 10000000, 10000000]
