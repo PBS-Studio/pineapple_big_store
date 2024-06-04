@@ -11,7 +11,9 @@ gradient = SubResource("Gradient_c2iv2")
 fill = 1
 fill_from = Vector2(0.517094, 0.504274)
 
-[node name="bar" type="TileMap"]
+[node name="bar" type="Node2D"]
+
+[node name="bar" type="TileMap" parent="."]
 modulate = Color(0.345098, 0.301961, 0.223529, 1)
 tile_set = ExtResource("1_tfqop")
 format = 2
@@ -24,48 +26,48 @@ layer_2/tile_data = PackedInt32Array(786450, 7, 8, 720914, 7, 7, 655378, 7, 7, 5
 layer_3/name = "airobject"
 layer_3/tile_data = PackedInt32Array(851970, 786439, 74, 851971, 851975, 74, 851979, 917511, 74, 851980, 983047, 74, 458757, 917511, 74, 458758, 983047, 74, 786436, 917511, 53, 851972, 917511, 54, 524309, 7, 49, 589845, 7, 50, 131074, 262151, 24, 196610, 262151, 25, 131075, 327687, 24, 196611, 327687, 25, 131076, 393223, 24, 196612, 393223, 25, 131085, 262151, 24, 196621, 262151, 25, 131086, 327687, 24, 196622, 327687, 25, 131087, 393223, 24, 196623, 393223, 25, 589834, 917511, 57, 655370, 917511, 58)
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="Marker2D" type="Marker2D" parent="bar"]
 position = Vector2(262, 176)
 
-[node name="Light" type="Node" parent="."]
+[node name="Light" type="Node" parent="bar"]
 
-[node name="PointLight2D" type="PointLight2D" parent="Light"]
+[node name="PointLight2D" type="PointLight2D" parent="bar/Light"]
 position = Vector2(311, 164)
 scale = Vector2(2.59766, 2.59766)
 color = Color(0.741176, 0.411765, 0.0666667, 1)
 texture = SubResource("GradientTexture2D_bh74j")
 
-[node name="PointLight2D2" type="PointLight2D" parent="Light"]
+[node name="PointLight2D2" type="PointLight2D" parent="bar/Light"]
 position = Vector2(167.969, 120.969)
 scale = Vector2(2.03223, 2.03223)
 color = Color(0.741176, 0.411765, 0.0666667, 1)
 texture = SubResource("GradientTexture2D_bh74j")
 
-[node name="PointLight2D3" type="PointLight2D" parent="Light"]
+[node name="PointLight2D3" type="PointLight2D" parent="bar/Light"]
 position = Vector2(167.969, 215.969)
 scale = Vector2(2.03223, 2.03223)
 color = Color(0.741176, 0.411765, 0.0666667, 1)
 texture = SubResource("GradientTexture2D_bh74j")
 
-[node name="PointLight2D4" type="PointLight2D" parent="Light"]
+[node name="PointLight2D4" type="PointLight2D" parent="bar/Light"]
 position = Vector2(167.969, 170.969)
 scale = Vector2(2.03223, 2.03223)
 color = Color(0.741176, 0.411765, 0.0666667, 1)
 texture = SubResource("GradientTexture2D_bh74j")
 
-[node name="PointLight2D5" type="PointLight2D" parent="Light"]
+[node name="PointLight2D5" type="PointLight2D" parent="bar/Light"]
 position = Vector2(70.9688, 120.969)
 scale = Vector2(2.03223, 2.03223)
 color = Color(0.741176, 0.411765, 0.0666667, 1)
 texture = SubResource("GradientTexture2D_bh74j")
 
-[node name="PointLight2D6" type="PointLight2D" parent="Light"]
+[node name="PointLight2D6" type="PointLight2D" parent="bar/Light"]
 position = Vector2(70.9688, 215.969)
 scale = Vector2(2.03223, 2.03223)
 color = Color(0.741176, 0.411765, 0.0666667, 1)
 texture = SubResource("GradientTexture2D_bh74j")
 
-[node name="PointLight2D7" type="PointLight2D" parent="Light"]
+[node name="PointLight2D7" type="PointLight2D" parent="bar/Light"]
 position = Vector2(70.9688, 170.969)
 scale = Vector2(2.03223, 2.03223)
 color = Color(0.741176, 0.411765, 0.0666667, 1)

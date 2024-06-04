@@ -2,7 +2,9 @@
 
 [ext_resource type="TileSet" uid="uid://bpqowov83si01" path="res://just_go_down/tile/big road.tres" id="1_rh2ja"]
 
-[node name="001" type="TileMap"]
+[node name="001" type="Node2D"]
+
+[node name="001" type="TileMap" parent="."]
 position = Vector2(126, -357)
 tile_set = ExtResource("1_rh2ja")
 format = 2
