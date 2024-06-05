@@ -19,6 +19,8 @@ enum Mode{
 	Motorcycle,
 }
 
+func _ready():
+	set_process_input(false)
 
 func ride_motorcycle():
 	mode = Mode.Motorcycle
