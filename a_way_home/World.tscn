@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjg4r1tcsgin7"]
+[gd_scene load_steps=11 format=3 uid="uid://cjg4r1tcsgin7"]
 
 [ext_resource type="Texture2D" uid="uid://p358bmr44qlf" path="res://a_way_home/Enemies/sprites/World/Night_BG.png" id="1_850e5"]
+[ext_resource type="Script" path="res://a_way_home/World.gd" id="1_u2f4t"]
 [ext_resource type="PackedScene" uid="uid://bsd42ir3a14ov" path="res://a_way_home/Player/human_player.tscn" id="3_cbc15"]
 [ext_resource type="PackedScene" uid="uid://bedu5qn4i7xwc" path="res://a_way_home/Enemies/sprites/World/Rushia ghost.tscn" id="3_oxdey"]
 [ext_resource type="PackedScene" uid="uid://dwqiml08xxeqe" path="res://a_way_home/Utility/enemy_spawner.tscn" id="4_k3hyg"]
 [ext_resource type="PackedScene" uid="uid://dary4kuc46weo" path="res://a_way_home/Objects/exp.tscn" id="5_78qtm"]
 [ext_resource type="AudioStream" uid="uid://co1iedyrpgw8r" path="res://a_way_home/survivor template/Audio/my audio/Rushia Lord of the Screams Black Metal潤羽るしあブラックメタル.mp3" id="6_q82sw"]
+[ext_resource type="AudioStream" uid="uid://bjtm8h3kf6mdn" path="res://a_way_home/survivor template/Audio/my audio/silly creepy crawly.mp3" id="8_t2lby"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhegx"]
 size = Vector2(317, 47.5)
@@ -14,6 +16,7 @@ size = Vector2(317, 47.5)
 size = Vector2(20, 2556)
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_u2f4t")
 
 [node name="Night_BG" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -87,3 +90,6 @@ exp = 10
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_q82sw")
 volume_db = -15.0
+
+[node name="end_game" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_t2lby")
