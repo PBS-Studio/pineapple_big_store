@@ -12,8 +12,8 @@ func _ready():
 	update_score()
 	
 func completegame():
-	Bgm.stream_paused = false
-	#RpgManager.change_scene_and_tp("big_road","ExitLittleRoad")
+	#Bgm.stream_paused = false
+	RpgManager.change_scene_and_tp("big_road","ExitCollegeRoad")
 
 func update_score():
 	$Label.text = str(floori(score))

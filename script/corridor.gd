@@ -31,3 +31,7 @@ func _on_001_body_entered(_body):
 		return
 
 	# TODO Add enter 001
+
+
+func _on_big_road_body_entered(body):
+	RpgManager.change_scene_and_tp("big_road", "ExitCorridor")

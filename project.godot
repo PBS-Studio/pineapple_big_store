@@ -58,7 +58,9 @@ glossary/default_case_sensitive=true
 layout/style_list=["res://theme/rpg_theme.tres"]
 layout/default_style="res://theme/rpg_theme.tres"
 variables={
-"fy_defeat": false
+"001_complete": false,
+"fy_defeat": false,
+"godown_complete": false
 }
 text/letter_speed=0.05
 text/initial_text_reveal_skippable=true
