@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://gp8icys7ye2k"]
+[gd_scene load_steps=5 format=3 uid="uid://gp8icys7ye2k"]
 
 [ext_resource type="Script" path="res://just_go_down/Scenes/end_menu.gd" id="1_n60k5"]
+[ext_resource type="FontFile" uid="uid://cqmxlxonew8a5" path="res://assets/fonts/Cubic_11/fonts/ttf/Cubic_11_1.100_R.ttf" id="2_sjnsf"]
+[ext_resource type="AudioStream" uid="uid://b8ji7cs844lx" path="res://just_go_down/music/小朋友下樓梯音效.mp3" id="3_jrneq"]
+[ext_resource type="AudioStream" uid="uid://crkmjw28qd2u5" path="res://just_go_down/music/William Benckert - Glitching Through the Sky.mp3" id="4_3qph8"]
 
 [node name="end_menu" type="Control"]
 layout_mode = 3
@@ -30,6 +33,7 @@ offset_top = 321.0
 offset_right = -561.0
 offset_bottom = -287.0
 scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("2_sjnsf")
 text = "Restart"
 
 [node name="Label" type="Label" parent="."]
@@ -41,6 +45,7 @@ offset_top = 172.0
 offset_right = -571.0
 offset_bottom = -453.0
 scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("2_sjnsf")
 text = "太菜了吧 這樣期末可是會完蛋的喔"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -56,5 +61,13 @@ points = PackedVector2Array(1047, 599, 105, 599)
 
 [node name="Line2D4" type="Line2D" parent="."]
 points = PackedVector2Array(105, 50, 105, 599)
+
+[node name="RRRR" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jrneq")
+autoplay = true
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3qph8")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
