@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://bsd42ir3a14ov"]
+[gd_scene load_steps=118 format=3 uid="uid://bsd42ir3a14ov"]
 
 [ext_resource type="Script" path="res://a_way_home/Player/human_player.gd" id="1_q6cql"]
 [ext_resource type="Texture2D" uid="uid://ch5fkct6kff4g" path="res://a_way_home/Free Version Red Sprite/Back Dash.png" id="2_031bt"]
@@ -10,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://cdg2ewlwm6lq8" path="res://a_way_home/Free Version Red Sprite/Back ConsecutiveSlash.png" id="5_so8u0"]
 [ext_resource type="PackedScene" uid="uid://31ggif1r7rs" path="res://a_way_home/Utility/hurt_box.tscn" id="6_vd2j2"]
 [ext_resource type="Script" path="res://a_way_home/Player/SwordHit.gd" id="8_rkqky"]
+[ext_resource type="Texture2D" uid="uid://c4amr0a6sfoji" path="res://a_way_home/survivor template/Textures/GUI/exp_background.png" id="11_ux2tn"]
+[ext_resource type="Texture2D" uid="uid://bgryyds0rs0th" path="res://a_way_home/survivor template/Textures/GUI/exp_progress.png" id="12_21ld2"]
+[ext_resource type="FontFile" uid="uid://cqmxlxonew8a5" path="res://assets/fonts/Cubic_11/fonts/ttf/Cubic_11_1.100_R.ttf" id="13_0e0oi"]
+[ext_resource type="AudioStream" uid="uid://byshsu2k3vxdp" path="res://a_way_home/survivor template/Audio/my audio/level_up.wav" id="14_2be5o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tgfnc"]
 atlas = ExtResource("4_o0gym")
@@ -1060,6 +1064,12 @@ _data = {
 "slash_up": SubResource("Animation_m350e")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_atbm8"]
+radius = 39.202
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5y057"]
+radius = 6.0
+
 [node name="Human_player" type="CharacterBody2D" groups=["human_player"]]
 scale = Vector2(2.5, 2.5)
 collision_layer = 3
@@ -1071,6 +1081,7 @@ pineapple_bomb_attackspeed = 3.0
 position = Vector2(0.4, 0)
 sprite_frames = SubResource("SpriteFrames_yh2a4")
 animation = &"slash_side"
+frame = 1
 flip_h = true
 
 [node name="SwordHit" type="Area2D" parent="AnimatedSprite2D" groups=["attack"]]
@@ -1081,6 +1092,7 @@ collision_mask = 4
 script = ExtResource("8_rkqky")
 
 [node name="Sword_hit_collision" type="CollisionShape2D" parent="AnimatedSprite2D/SwordHit"]
+visible = false
 position = Vector2(0, 2.98023e-08)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_n1rfo")
@@ -1094,6 +1106,10 @@ shape = SubResource("CapsuleShape2D_1ubyq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
+limit_left = -1278
+limit_top = -1278
+limit_right = 1278
+limit_bottom = 1278
 
 [node name="HurtBox" parent="." instance=ExtResource("6_vd2j2")]
 visible = false
@@ -1114,6 +1130,9 @@ wait_time = 1.5
 unique_name_in_owner = true
 wait_time = 0.075
 
+[node name="JavelinBase" type="Node2D" parent="Attack"]
+unique_name_in_owner = true
+
 [node name="EnemyDetectionArea" type="Area2D" parent="."]
 visible = false
 collision_layer = 4
@@ -1129,6 +1148,82 @@ libraries = {
 "": SubResource("AnimationLibrary_d8lv2")
 }
 
+[node name="GrabArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
+shape = SubResource("CircleShape2D_atbm8")
+
+[node name="CollectArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
+position = Vector2(0.4, -0.8)
+shape = SubResource("CircleShape2D_5y057")
+
+[node name="GUILayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="GUILayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ExperienceBar" type="TextureProgressBar" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+texture_under = ExtResource("11_ux2tn")
+texture_progress = ExtResource("12_21ld2")
+
+[node name="Label_level" type="Label" parent="GUILayer/GUI/ExperienceBar"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 540.0
+offset_right = 640.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("13_0e0oi")
+theme_override_font_sizes/font_size = 14
+text = "Level :1"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="LevelUp" type="Panel" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+process_mode = 2
+layout_mode = 0
+offset_left = 1276.0
+offset_top = 74.0
+offset_right = 1676.0
+offset_bottom = 574.0
+
+[node name="lbl_LevelUp" type="Label" parent="GUILayer/GUI/LevelUp"]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("13_0e0oi")
+theme_override_font_sizes/font_size = 25
+text = "Level UP!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeOptions" type="VBoxContainer" parent="GUILayer/GUI/LevelUp"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 20.0
+offset_top = 100.0
+offset_right = 380.0
+offset_bottom = 200.0
+
+[node name="snd_levelUp" type="AudioStreamPlayer" parent="GUILayer/GUI/LevelUp"]
+unique_name_in_owner = true
+stream = ExtResource("14_2be5o")
+volume_db = -8.0
+
 [connection signal="area_entered" from="AnimatedSprite2D/SwordHit" to="." method="_on_sword_hit_area_entered"]
 [connection signal="timeout" from="AnimatedSprite2D/SwordHit/Sword_hit_timer" to="." method="_on_sword_hit_timer_timeout"]
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
@@ -1136,5 +1231,7 @@ libraries = {
 [connection signal="timeout" from="Attack/Pineapple_bomb_Timer/Pineapple_attack_Timer" to="." method="_on_pineapple_attack_timer_timeout"]
 [connection signal="body_entered" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_entered"]
 [connection signal="body_exited" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_exited"]
+[connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]
+[connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]
 
 [editable path="HurtBox"]

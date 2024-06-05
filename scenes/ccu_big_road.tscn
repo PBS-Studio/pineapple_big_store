@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnm73kn0bmgck"]
+[gd_scene load_steps=7 format=3 uid="uid://bnm73kn0bmgck"]
 
 [ext_resource type="Script" path="res://script/ccu_big_road.gd" id="1_aj5x3"]
 [ext_resource type="TileSet" uid="uid://bpqowov83si01" path="res://just_go_down/tile/big road.tres" id="1_wgb5b"]
@@ -6,6 +6,12 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8iku7"]
 size = Vector2(596, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aoiyq"]
+size = Vector2(335, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0qi0"]
+size = Vector2(44, 427)
 
 [node name="ccu_big_road" type="Node2D"]
 script = ExtResource("1_aj5x3")
@@ -52,4 +58,19 @@ polygon = PackedVector2Array(445, 2, 444, 2110, 433, 2160, 385, 2208, 193, 2400,
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Border"]
 polygon = PackedVector2Array(444, 2320, 440, 2362, 395, 2363, 390, 2407, 344, 2412, 338, 2545, 294, 2555, 294, 2823, 342, 2824, 348, 2963, 382, 2968, 390, 3010, 434, 3016, 445, 3061, 581, 3064, 587, 3110, 900, 3111, 907, 3064, 1050, 3059, 1052, 3019, 1096, 3011, 1101, 2965, 1142, 2962, 1146, 2825, 1192, 2817, 1194, 2556, 1151, 2545, 1144, 2409, 1099, 2405, 1093, 2362, 1052, 2359, 1045, 2314, 910, 2308, 904, 2269, 594, 2265, 582, 2304)
 
+[node name="pineapplerain" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pineapplerain"]
+position = Vector2(752, 129)
+shape = SubResource("RectangleShape2D_aoiyq")
+
+[node name="college_road" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="college_road"]
+position = Vector2(-24, 2662.5)
+shape = SubResource("RectangleShape2D_q0qi0")
+
 [connection signal="body_entered" from="Corridor" to="." method="_on_corridor_body_entered"]
+[connection signal="area_shape_entered" from="pineapplerain" to="." method="_on_pineapplerain_area_shape_entered"]
+[connection signal="body_entered" from="pineapplerain" to="." method="_on_pineapplerain_body_entered"]
+[connection signal="body_entered" from="college_road" to="." method="_on_college_road_body_entered"]

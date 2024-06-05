@@ -1,7 +1,8 @@
 extends Node2D
 
 
-
+func _ready():
+	Bgm.stream_paused = true
 
 
 func _on_play_pressed():
