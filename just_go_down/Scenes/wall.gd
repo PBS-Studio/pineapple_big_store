@@ -7,7 +7,7 @@ var score = 0
 
 func _ready():
 	Bgm.stream_paused = true
-	$justgodownbgm.stream_paused = false
+	$justgodownbgm.stream_paused = true
 	velocity.y = 100 
 	update_score()
 	

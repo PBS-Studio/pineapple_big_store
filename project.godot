@@ -30,7 +30,7 @@ SceneManager="*res://addons/scene_manager/scene_manager.tscn"
 Scenes="*res://addons/scene_manager/scenes.gd"
 InventoryManager="*res://component/script/inventory_manager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-Mihon="res://scenes/mihon.tscn"
+Mihon="*res://scenes/mihon.tscn"
 
 [dialogic]
 
