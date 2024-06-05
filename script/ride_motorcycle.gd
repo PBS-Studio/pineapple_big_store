@@ -11,7 +11,7 @@ extends Node2D
 
 @onready var motorcycle = $Motorcycle
 @onready var static_body = $StaticBody2D
-@onready var collision = $StaticBody2D / MotorcycleCollision
+@onready var collision = $"StaticBody2D/MotorcycleCollision"
 @onready var area = $InteractArea
 
 

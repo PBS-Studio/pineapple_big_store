@@ -30,6 +30,7 @@ func _exit_motorcycle():
 	mode = Mode.Normal
 	animation.visible = true
 	collision.disabled = false
+	animation.play("idle")
 	$RideMotorcycle.exit_motorcycle()
 
 
@@ -38,7 +39,7 @@ func _physics_process(_delta):
 	if velocity != Vector2.ZERO:
 		InteractManager.update_indicator(global_position)
 
-	if mode == Mode.Motorcycle:
+	if mode == Mode.Motorcycle and Dialogic.current_timeline == null:
 		_motorcycle_input()
 
 
@@ -52,15 +53,15 @@ func _input(_event):
 	if Input.is_action_just_pressed("ui_cancel") and mode == Mode.Motorcycle:
 		_exit_motorcycle()
 
+	if Input.is_action_just_pressed("ui_accept"):
+		InteractManager.interact()
+
 
 func _normal_input():
 	var d = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if d != Vector2.ZERO and animation.animation == "idle":
 		direction = d
 		animation.play("walk")
-
-	if Input.is_action_just_pressed("ui_accept"):
-		InteractManager.interact()
 
 
 func _motorcycle_input():

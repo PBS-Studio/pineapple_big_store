@@ -27,8 +27,9 @@ static func get_nearest_interact(global_position: Vector2) -> Area2D:
 
 
 static func interact() -> void:
-	var nearest_area: Area2D = interact_areas.front()
+	var nearest_area: Area2D = interact_areas.filter(func(area): return area.active).front()
 	if nearest_area == null:
 		return
 
+	nearest_area.indicator = false
 	nearest_area.interact.emit()
