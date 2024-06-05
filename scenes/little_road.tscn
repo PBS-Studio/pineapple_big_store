@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://147ri3gd13gx"]
+[gd_scene load_steps=8 format=3 uid="uid://147ri3gd13gx"]
 
 [ext_resource type="TileSet" uid="uid://bpqowov83si01" path="res://just_go_down/tile/big road.tres" id="1_7c8d0"]
 [ext_resource type="Script" path="res://script/little_road.gd" id="1_gacbl"]
@@ -12,6 +12,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mwg8k"]
 size = Vector2(16, 117)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yj3yc"]
+size = Vector2(20, 88)
+
 [node name="little road" type="Node2D"]
 script = ExtResource("1_gacbl")
 
@@ -20,8 +23,9 @@ position = Vector2(1930, 267)
 rotation = 3.14159
 scale = Vector2(2, 2)
 
-[node name="gocollegeroad" type="Marker2D" parent="."]
+[node name="ExitCollegeRoad" type="Marker2D" parent="."]
 position = Vector2(360, 267)
+rotation = -1.5708
 scale = Vector2(2, 2)
 
 [node name="little road" type="TileMap" parent="."]
@@ -51,7 +55,7 @@ rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_pkl8u")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(300, 266)
+position = Vector2(231, 267)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_wyqti")
 
@@ -66,4 +70,12 @@ shape = SubResource("WorldBoundaryShape2D_wyqti")
 position = Vector2(2110, 259.5)
 shape = SubResource("RectangleShape2D_mwg8k")
 
+[node name="CollegeRoad" type="Area2D" parent="."]
+position = Vector2(321, 259)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollegeRoad"]
+position = Vector2(-78, 9)
+shape = SubResource("RectangleShape2D_yj3yc")
+
 [connection signal="body_entered" from="PineappleField" to="." method="_on_pineapple_field_body_entered"]
+[connection signal="body_entered" from="CollegeRoad" to="." method="_on_college_road_body_entered"]

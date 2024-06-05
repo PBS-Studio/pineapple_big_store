@@ -14,3 +14,8 @@ func _process(delta):
 
 func _on_pineapple_field_body_entered(_body):
 	RpgManager.change_scene_and_tp("pineapple_field", "ExitLittleRoad")
+
+
+func _on_college_road_body_entered(_body):
+	RpgManager.change_scene_and_tp("college_road", "ExitLittleRoad")
+	

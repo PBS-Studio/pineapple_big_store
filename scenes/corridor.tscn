@@ -28,10 +28,10 @@ size = Vector2(170, 79)
 [node name="corridor" type="Node2D"]
 script = ExtResource("1_kvptb")
 
-[node name="exitbigroad" type="Marker2D" parent="."]
+[node name="ExitBigRoad" type="Marker2D" parent="."]
 position = Vector2(936, 197)
 
-[node name="go001" type="Marker2D" parent="."]
+[node name="Exit001" type="Marker2D" parent="."]
 position = Vector2(466, 174)
 
 [node name="corridor" type="TileMap" parent="."]

@@ -1,6 +1,6 @@
 extends Node2D
 
-var limit = [0, 83, 1008, 227]
+var limit = [ - 48, 0, 1584, 3360]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,5 +13,5 @@ func _process(delta):
 	pass
 
 
-func _on_interact_area_interact():
-	Dialogic.start("meetfy")
+func _on_corridor_body_entered(_body):
+	RpgManager.change_scene_and_tp("corridor", "ExitBigRoad")
