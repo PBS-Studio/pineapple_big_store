@@ -1,6 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://f5tsvucablgu"]
+[gd_scene load_steps=18 format=3 uid="uid://f5tsvucablgu"]
 
 [ext_resource type="TileSet" uid="uid://bpqowov83si01" path="res://just_go_down/tile/big road.tres" id="1_tfqop"]
+[ext_resource type="Texture2D" uid="uid://wad0fr1fxcxy" path="res://assets/custom/spain.png" id="2_chm7b"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4rmts"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sck1q"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tmi84"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6wnem"]
 
 [sub_resource type="Gradient" id="Gradient_c2iv2"]
 offsets = PackedFloat32Array(0, 0.631148)
@@ -11,13 +20,69 @@ gradient = SubResource("Gradient_c2iv2")
 fill = 1
 fill_from = Vector2(0.517094, 0.504274)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4rmts"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud2a0"]
+atlas = ExtResource("2_chm7b")
+region = Rect2(0, 0, 1024, 1024)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sck1q"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2asi"]
+atlas = ExtResource("2_chm7b")
+region = Rect2(0, 1024, 1024, 1024)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tmi84"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnlnq"]
+atlas = ExtResource("2_chm7b")
+region = Rect2(0, 2048, 1024, 1024)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6wnem"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvyao"]
+atlas = ExtResource("2_chm7b")
+region = Rect2(0, 3072, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ad6l8"]
+atlas = ExtResource("2_chm7b")
+region = Rect2(0, 4096, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1o4a"]
+atlas = ExtResource("2_chm7b")
+region = Rect2(0, 5120, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai2ll"]
+atlas = ExtResource("2_chm7b")
+region = Rect2(0, 6144, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5kqw"]
+atlas = ExtResource("2_chm7b")
+region = Rect2(0, 7168, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b7m6l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud2a0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2asi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnlnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvyao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ad6l8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1o4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai2ll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5kqw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [node name="bar" type="Node2D"]
 
@@ -29,6 +94,8 @@ position = Vector2(370, 239)
 
 [node name="bar" type="TileMap" parent="."]
 modulate = Color(0.345098, 0.301961, 0.223529, 1)
+position = Vector2(2, -90)
+scale = Vector2(3, 3)
 tile_set = ExtResource("1_tfqop")
 format = 2
 layer_0/name = "ground"
@@ -39,8 +106,30 @@ layer_2/name = "groundobject"
 layer_2/tile_data = PackedInt32Array(786450, 7, 8, 720914, 7, 7, 655378, 7, 7, 589842, 7, 7, 524306, 7, 6, 458770, 7, 5, 458771, 65543, 5, 524307, 65543, 6, 458772, 65543, 5, 524308, 65543, 6, 458773, 131079, 5, 524309, 131079, 6, 589845, 131079, 7, 655381, 131079, 8, 786452, 65543, 8, 786453, 131079, 8, 786451, 65543, 8, 786434, 327687, 76, 851970, 327687, 77, 917506, 327687, 78, 786435, 393223, 76, 851971, 393223, 77, 917507, 393223, 78, 786437, 196615, 76, 851973, 196615, 77, 917509, 196615, 78, 786438, 262151, 76, 851974, 262151, 77, 917510, 262151, 78, 851972, 65543, 33, 917508, 65543, 34, 589826, 589831, 76, 655362, 589831, 77, 720898, 589831, 78, 589827, 655367, 76, 655363, 655367, 77, 720899, 655367, 78, 589829, 458759, 76, 655365, 458759, 77, 720901, 458759, 78, 589830, 524295, 76, 655366, 524295, 77, 720902, 524295, 78, 393218, 327687, 80, 458754, 327687, 81, 524290, 327687, 82, 393219, 393223, 80, 458755, 393223, 81, 524291, 393223, 82, 393221, 196615, 80, 458757, 196615, 81, 524293, 196615, 82, 393222, 262151, 80, 458758, 262151, 81, 524294, 262151, 82, 786440, 589831, 80, 851976, 589831, 81, 917512, 589831, 82, 786441, 655367, 80, 851977, 655367, 81, 917513, 655367, 82, 786443, 458759, 80, 851979, 458759, 81, 917515, 458759, 82, 786444, 524295, 80, 851980, 524295, 81, 917516, 524295, 82, 655364, 458759, 33, 720900, 458759, 34, 458756, 262151, 33, 524292, 262151, 34, 851978, 65543, 33, 917514, 65543, 34, 524305, 393223, 13, 589841, 393223, 13, 655377, 393223, 13, 720913, 393223, 13, 786449, 393223, 13, 851987, 393223, 13, 851988, 393223, 13, 589832, 327687, 80, 655368, 327687, 81, 720904, 327687, 82, 589833, 393223, 80, 655369, 393223, 81, 720905, 393223, 82, 589835, 196615, 80, 655371, 196615, 81, 720907, 196615, 82, 589836, 262151, 80, 655372, 262151, 81, 720908, 262151, 82, 393224, 327687, 76, 458760, 327687, 77, 524296, 327687, 78, 393225, 393223, 76, 458761, 393223, 77, 524297, 393223, 78, 393227, 196615, 76, 458763, 196615, 77, 524299, 196615, 78, 393228, 262151, 76, 458764, 262151, 77, 524300, 262151, 78, 458762, 262151, 33, 524298, 262151, 34, 655370, 458759, 33, 720906, 458759, 34)
 layer_3/name = "airobject"
 layer_3/tile_data = PackedInt32Array(851970, 786439, 74, 851971, 851975, 74, 851979, 917511, 74, 851980, 983047, 74, 458757, 917511, 74, 458758, 983047, 74, 786436, 917511, 53, 851972, 917511, 54, 524309, 7, 49, 589845, 7, 50, 131074, 262151, 24, 196610, 262151, 25, 131075, 327687, 24, 196611, 327687, 25, 131076, 393223, 24, 196612, 393223, 25, 131085, 262151, 24, 196621, 262151, 25, 131086, 327687, 24, 196622, 327687, 25, 131087, 393223, 24, 196623, 393223, 25, 589834, 917511, 57, 655370, 917511, 58)
+metadata/_edit_group_ = true
 
-[node name="Light" type="Node" parent="bar"]
+[node name="StaticBody2D" type="StaticBody2D" parent="bar"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bar/StaticBody2D"]
+position = Vector2(186, 256)
+shape = SubResource("WorldBoundaryShape2D_4rmts")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bar/StaticBody2D"]
+position = Vector2(236, 95)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_sck1q")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="bar/StaticBody2D"]
+position = Vector2(0, 169)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_tmi84")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="bar/StaticBody2D"]
+position = Vector2(418, 144)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_6wnem")
+
+[node name="Light" type="Node2D" parent="bar"]
 
 [node name="PointLight2D" type="PointLight2D" parent="bar/Light"]
 position = Vector2(311, 164)
@@ -84,23 +173,9 @@ scale = Vector2(2.03223, 2.03223)
 color = Color(0.741176, 0.411765, 0.0666667, 1)
 texture = SubResource("GradientTexture2D_bh74j")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(186, 256)
-shape = SubResource("WorldBoundaryShape2D_4rmts")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(236, 95)
-rotation = 3.14159
-shape = SubResource("WorldBoundaryShape2D_sck1q")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 169)
-rotation = 1.5708
-shape = SubResource("WorldBoundaryShape2D_tmi84")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(418, 144)
-rotation = -1.5708
-shape = SubResource("WorldBoundaryShape2D_6wnem")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(900, 293)
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_b7m6l")
+autoplay = "default"
+frame_progress = 0.0776391

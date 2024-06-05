@@ -11,4 +11,5 @@ func  _ready():
 	$music.stream_paused = false
 
 func _on_button_pressed():
+	$music.stream_paused = true
 	get_tree().change_scene_to_file("res://just_go_down/Scenes/wrold.tscn")
