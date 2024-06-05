@@ -29,7 +29,7 @@ func _enter_undertale_fight():
 func _on_001_body_entered(_body):
 	if not Dialogic.VAR.fy_defeat:
 		return
-
+	Dialogic.VAR.isekai_complete = true
 	RpgManager.change_scene_no_effect("001")
 
 

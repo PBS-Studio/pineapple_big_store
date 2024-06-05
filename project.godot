@@ -59,7 +59,7 @@ layout/style_list=["res://theme/rpg_theme.tres"]
 layout/default_style="res://theme/rpg_theme.tres"
 variables={
 "fy_defeat": false,
-"godown_complete": true,
+"godown_complete": false,
 "isekai_complete": false
 }
 text/letter_speed=0.05
