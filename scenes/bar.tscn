@@ -81,7 +81,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 12.0
+"speed": 6.0
 }]
 
 [node name="bar" type="Node2D"]
@@ -172,7 +172,7 @@ position = Vector2(900, 293)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_b7m6l")
 autoplay = "default"
-frame_progress = 0.521318
+frame_progress = 0.574524
 
 [node name="go" type="Marker2D" parent="."]
 position = Vector2(1107, 628)
