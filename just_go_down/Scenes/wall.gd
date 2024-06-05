@@ -12,7 +12,7 @@ func _ready():
 	
 func completegame():
 	Bgm.stream_paused = false
-	get_tree().change_scene_to_file("res://scenes/ccu_big_road.tscn")
+	#RpgManager.change_scene_and_tp("res://scenes/ccu_big_road.tscn","exitlittleroad")
 
 func update_score():
 	$Label.text = str(floori(score))
