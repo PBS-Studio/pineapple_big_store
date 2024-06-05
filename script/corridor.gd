@@ -1,11 +1,12 @@
 extends Node2D
 
-var limit = [0, 83, 1008, 227]
+var limit = [0, 3, 2016, 291]
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if Dialogic.VAR.fy_defeat:
+		$Boss.queue_free()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,3 +16,11 @@ func _process(delta):
 
 func _on_interact_area_interact():
 	Dialogic.start("meetfy")
+	Dialogic.timeline_ended.connect(_enter_undertale_fight)
+
+
+func _enter_undertale_fight():
+	Dialogic.timeline_ended.disconnect(_enter_undertale_fight)
+	Dialogic.VAR.fy_defeat = true
+
+	RpgManager.change_scene_no_effect("undertale_fight")
