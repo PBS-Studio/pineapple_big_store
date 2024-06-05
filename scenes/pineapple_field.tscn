@@ -961,6 +961,8 @@ y_sort_enabled = true
 position = Vector2(184, -149)
 
 [node name="RideMotorcycle" parent="." instance=ExtResource("10_hker1")]
+z_index = 1
+z_as_relative = false
 position = Vector2(-111, 159)
 rotation_3d = 0.436407
 
