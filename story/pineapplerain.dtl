@@ -1,4 +1,5 @@
-set {001_complete} = true
+set {isekai_complete} = true
+[sound path="res://assets/audio/snd_phone.wav" volume="0.0"]
 叮
 mh: 離散又停課了阿
 mh: 奇怪，我為甚麼說又呢?
