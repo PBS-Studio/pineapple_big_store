@@ -4,10 +4,13 @@ extends CharacterBody2D
 @export var hp=10
 @export var knockback_recovery=3.5 #敵人從擊退狀態中恢復的速度
 var knockback=Vector2.ZERO
+@export var experience=1 #設定敵人掉落的經驗值
 
 @onready var player=get_tree().get_first_node_in_group("human_player")
 @onready var anim=$AnimatedSprite2D
 @onready var snd_hit=$snd_hit #Gram-schmidt
+@onready var loot_base=get_tree().get_first_node_in_group("loot") #Loot節點 in world
+
 
 #Hit_once_array
 signal  remove_from_array(object) 
@@ -18,8 +21,12 @@ var player_detection=0
 
 #Enemy death
 var death_anim=preload("res://a_way_home/Enemies/explosion.tscn")
+var exp=preload("res://a_way_home/Objects/exp.tscn")
 
 func _ready():
+	#var nodes = get_tree().get_nodes_in_group("loot")
+	#var first_node = nodes[0]        
+	#print("First node in group " + "loot" + " is: " + first_node.name)  #first node 是 Loot 
 	Bgm.stream_paused=true
 	if player == null:
 		print("Error: Player node is not found!")
@@ -51,6 +58,13 @@ func death():
 	ghost_death.global_position= global_position #設置死亡動畫的位置與當前敵人的位置相同
 	get_parent().call_deferred("add_child",ghost_death) 
 	#使用 call_deferred 方法將死亡動畫添加到敵人的父節點中。這樣可以確保在當前所有邏輯執行完畢後再添加死亡動畫
+	#---
+	
+	# exp fall
+	var new_exp=exp.instantiate()
+	new_exp.global_position=global_position #exp生成位置 為當前ghost 位置
+	new_exp.exp=experience #敵人掉落經驗值
+	loot_base.call_deferred("add_child",new_exp)
 	#---
 	queue_free()
 	
