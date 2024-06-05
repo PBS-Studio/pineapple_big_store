@@ -26,7 +26,7 @@ func _on_exit_body_entered(body):
 	var tween = create_tween()
 	tween.tween_property(camera, "global_position", spin.global_position, 2.0)
 	tween.parallel().tween_property(camera, "zoom", 6 * Vector2.ONE, 6.0)
-	tween.tween_callback(_end)
+	tween.tween_callback(_end).set_delay(2.0)
 
 func _end():
 	RpgManager.change_scene_no_effect("end")

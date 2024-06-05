@@ -89,7 +89,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_722sq"]
-size = Vector2(70.5, 80.5)
+size = Vector2(68.5, 106.5)
 
 [node name="bar" type="Node2D"]
 script = ExtResource("1_7mhwa")
@@ -225,7 +225,12 @@ position = Vector2(834, 351)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-position = Vector2(1215.25, 609.75)
+position = Vector2(1216.25, 622.75)
 shape = SubResource("RectangleShape2D_722sq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(879, 289, 879, 515, 1045, 516, 1046, 487, 913, 487, 914, 319, 1012, 319, 1011, 419, 1046, 418, 1045, 285, 878, 282)
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
