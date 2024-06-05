@@ -1,12 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4uougra2nt13"]
+[gd_scene load_steps=25 format=3 uid="uid://b4uougra2nt13"]
 
 [ext_resource type="TileSet" uid="uid://bpqowov83si01" path="res://just_go_down/tile/big road.tres" id="1_b6dpn"]
 [ext_resource type="Script" path="res://just_go_down/Scenes/Player.gd" id="1_jlyhm"]
-[ext_resource type="Texture2D" uid="uid://dy7qgb36e2ly1" path="res://just_go_down/Images/player.png" id="2_4nlqw"]
 [ext_resource type="Texture2D" uid="uid://dfaqb3o4pmu56" path="res://undertale_fight/assets/custom/pineapple_0001.png" id="3_skwab"]
 [ext_resource type="PackedScene" uid="uid://bmffyimo6k7tp" path="res://just_go_down/Object/floor.tscn" id="4_h4bvr"]
 [ext_resource type="Script" path="res://just_go_down/Scenes/wall.gd" id="4_lmr0e"]
+[ext_resource type="AudioStream" uid="uid://ssp58d8foxs5" path="res://just_go_down/music/THE WORLD REVOLVING.mp3" id="4_q0wbq"]
+[ext_resource type="Texture2D" uid="uid://rl4djlqa0eb" path="res://assets/custom/mihon_idle.png" id="5_38elp"]
 [ext_resource type="Script" path="res://just_go_down/Scenes/floor spawner.gd" id="5_qqd8o"]
+[ext_resource type="Texture2D" uid="uid://g8xcwinvneny" path="res://assets/custom/mihon_walk.png" id="6_v8jne"]
 [ext_resource type="PackedScene" uid="uid://cgtyvyvhtlh2w" path="res://just_go_down/Object/trapfloor.tscn" id="7_honee"]
 [ext_resource type="PackedScene" uid="uid://vo230cs1f3c2" path="res://just_go_down/Object/tempfloor.tscn" id="8_qqn66"]
 
@@ -21,6 +23,75 @@ size = Vector2(30, 49)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35fbt"]
 size = Vector2(30, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ampv"]
+atlas = ExtResource("5_38elp")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20flm"]
+atlas = ExtResource("5_38elp")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj5ya"]
+atlas = ExtResource("6_v8jne")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4w6k"]
+atlas = ExtResource("6_v8jne")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsflw"]
+atlas = ExtResource("6_v8jne")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5b86"]
+atlas = ExtResource("6_v8jne")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw58l"]
+atlas = ExtResource("6_v8jne")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cmil"]
+atlas = ExtResource("6_v8jne")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4vkcx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ampv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20flm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj5ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4w6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsflw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5b86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw58l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cmil")
+}],
+"loop": false,
+"name": &"walk",
+"speed": 15.0
+}]
 
 [node name="wrold" type="Node2D"]
 texture_filter = 1
@@ -217,14 +288,19 @@ position = Vector2(0, 10.125)
 shape = SubResource("RectangleShape2D_3ooct")
 
 [node name="Label" type="Label" parent="wall"]
-offset_left = -400.0
+offset_left = -500.0
 offset_top = -200.0
-offset_right = -360.0
+offset_right = -460.0
 offset_bottom = -177.0
+scale = Vector2(2, 2)
 
 [node name="burst" type="Timer" parent="wall"]
 wait_time = 10.0
 autostart = true
+
+[node name="justgodownbgm" type="AudioStreamPlayer" parent="wall"]
+stream = ExtResource("4_q0wbq")
+autoplay = true
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
 position = Vector2(0, -125)
@@ -235,17 +311,16 @@ metadata/_edit_group_ = true
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_jsx18")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(0, 9.53674e-07)
-scale = Vector2(0.491803, 0.486957)
-texture = ExtResource("2_4nlqw")
-
 [node name="hitbox" type="Area2D" parent="Player"]
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/hitbox"]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_35fbt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_4vkcx")
+animation = &"walk"
 
 [node name="Floor" parent="." instance=ExtResource("4_h4bvr")]
 

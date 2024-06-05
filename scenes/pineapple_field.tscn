@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bfyqwdpqtxiii" path="res://assets/tilemap/TopDownFantasy-Forest/Decorations/Decorations.png" id="4_t2y8i"]
 [ext_resource type="Texture2D" uid="uid://njhgo3kdjai" path="res://assets/tilemap/48x48 trees.png" id="5_wf4yf"]
 [ext_resource type="Texture2D" uid="uid://dwq8c6yf2tawx" path="res://assets/custom/pineapple_plant.png" id="6_p07mg"]
-[ext_resource type="PackedScene" uid="uid://bgnm4efbravf6" path="res://scenes/mihon.tscn" id="7_nrvd4"]
 [ext_resource type="PackedScene" uid="uid://fqhc8i0q0rp" path="res://items/sell_pineapple.tscn" id="9_qx45k"]
+[ext_resource type="PackedScene" uid="uid://1k4dunqmi48q" path="res://scenes/ride_motorcycle.tscn" id="10_hker1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w0jol"]
 texture = ExtResource("1_7vkbu")
@@ -919,22 +919,6 @@ layer_2/y_sort_enabled = true
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(-393222, 5, 0, -393219, 5, 0, -458752, 5, 0, -458749, 5, 0, -6, 5, 0, 131066, 5, 0, -3, 5, 0, 131069, 5, 0, -65536, 5, 0, 65536, 5, 0, 65539, 5, 0, 262138, 5, 0, 393210, 5, 0, 262141, 5, 0, 393213, 5, 0, 196608, 5, 0, 327680, 5, 0, 196611, 5, 0, 327683, 5, 0, -262150, 5, 0, -131078, 5, 0, -262147, 5, 0, -131075, 5, 0, -327680, 5, 0, -196608, 5, 0, -327677, 5, 0, -196605, 5, 0, -65533, 5, 0, -458746, 5, 0, -327674, 5, 0, -196602, 5, 0, -65530, 5, 0, 65542, 5, 0, 196614, 5, 0, 327686, 5, 0, 196597, 393223, 9, 196600, 589831, 9, 393208, 589831, 12, -720900, 983047, 10, -524278, 983047, 10, 131060, 458755, 3, -655369, 3, 3, -655365, 65539, 3, -655362, 65539, 2, -720894, 3, 3, -327692, 65539, 2, 65521, 65539, 2, -65548, 3, 2, -851960, 3, 2, -917497, 65539, 2, -1048571, 65539, 3, -851970, 65539, 2, -917508, 65539, 2, -524300, 3, 2, -720909, 65539, 3, -917516, 3, 3, -65527, 65539, 3, 786434, 65539, 2, 851955, 65539, 2, 589813, 3, 2, -655349, 0, 1, -655348, 65536, 1, -720885, 0, 0, -720884, 65536, 0)
 
-[node name="Mihon" parent="." instance=ExtResource("7_nrvd4")]
-z_index = 1
-y_sort_enabled = true
-scale = Vector2(0.7, 0.7)
-
-[node name="Camera2D" type="Camera2D" parent="Mihon"]
-position = Vector2(-1.42857, 0)
-zoom = Vector2(3, 3)
-limit_left = -256
-limit_top = -240
-limit_right = 263
-limit_bottom = 224
-limit_smoothed = true
-position_smoothing_enabled = true
-editor_draw_limits = true
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
 collision_mask = 0
@@ -954,12 +938,12 @@ rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_v8rc1")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(300, 0)
+position = Vector2(396, 0)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_8tqhe")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(285, 0)
+position = Vector2(377, 0)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -975,5 +959,17 @@ position = Vector2(199, -149)
 z_index = 1
 y_sort_enabled = true
 position = Vector2(184, -149)
+
+[node name="RideMotorcycle" parent="." instance=ExtResource("10_hker1")]
+z_index = 1
+z_as_relative = false
+position = Vector2(-111, 159)
+rotation_3d = 0.436407
+
+[node name="ExitLittleRoad" type="Marker2D" parent="."]
+position = Vector2(250, 0)
+rotation = 3.14159
+
+[node name="MainMenu" type="Marker2D" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

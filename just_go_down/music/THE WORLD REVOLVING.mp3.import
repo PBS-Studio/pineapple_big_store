@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ssp58d8foxs5"
+path="res://.godot/imported/THE WORLD REVOLVING.mp3-e37634d9e9e91adc011a5cca0cb596af.mp3str"
+
+[deps]
+
+source_file="res://just_go_down/music/THE WORLD REVOLVING.mp3"
+dest_files=["res://.godot/imported/THE WORLD REVOLVING.mp3-e37634d9e9e91adc011a5cca0cb596af.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

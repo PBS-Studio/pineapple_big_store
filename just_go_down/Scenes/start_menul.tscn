@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bd4d6es71ktg6"]
+[gd_scene load_steps=4 format=3 uid="uid://bd4d6es71ktg6"]
 
 [ext_resource type="Texture2D" uid="uid://jva3spgg5wuy" path="res://just_go_down/Images/floor.png" id="1_g5mqt"]
 [ext_resource type="Script" path="res://just_go_down/Scenes/start_menul.gd" id="1_ue63k"]
+[ext_resource type="FontFile" uid="uid://cqmxlxonew8a5" path="res://assets/fonts/Cubic_11/fonts/ttf/Cubic_11_1.100_R.ttf" id="2_bkc25"]
 
 [node name="start_menul" type="Control"]
 layout_mode = 3
@@ -44,16 +45,17 @@ offset_left = 0.167992
 offset_top = 0.103996
 offset_right = -0.168091
 offset_bottom = 0.247986
+theme_override_fonts/font = ExtResource("2_bkc25")
 text = "天空降下了鳳梨雨，不過鳴洪擁有多年在工地工作的經驗，他可以使用無詠唱高速砌牆，這可是大部分包工頭
 都不會的技能，但是他也不小心受到了台灣人情味的感染，偶爾會砌出保麗龍等級的牆壁，有的可以使用一次，
-有的甚至只有觀賞功能，明宏從這裡到校門口大概需要50秒，請協助他逃離這個鬼地方
+有的甚至只有觀賞功能，明宏從這裡到校門口大概需要100秒，請協助他逃離這個鬼地方
 
 貼心提醒，按下空格有驚喜喔
 
 
 
 
-普通牆壁                                     一次性牆壁                                     陷阱牆壁
+普通牆壁                            一次性牆壁                            陷阱牆壁
 
 
 

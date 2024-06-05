@@ -1,8 +1,51 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo06u63buef16"]
+[gd_scene load_steps=16 format=3 uid="uid://bo06u63buef16"]
 
+[ext_resource type="Script" path="res://script/corridor.gd" id="1_kvptb"]
 [ext_resource type="TileSet" uid="uid://bpqowov83si01" path="res://just_go_down/tile/big road.tres" id="1_q143l"]
+[ext_resource type="PackedScene" uid="uid://c4hb73n1dy8oc" path="res://undertale_fight/scenes/boss.tscn" id="2_n7i4p"]
+[ext_resource type="PackedScene" uid="uid://lhm52vkl8d36" path="res://component/interact_area.tscn" id="3_mt7q2"]
 
-[node name="corridor" type="TileMap"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_saqk0"]
+radius = 44.1898
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5deyy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruxmc"]
+size = Vector2(306, 159)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tik3f"]
+size = Vector2(427.5, 164)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkk6e"]
+size = Vector2(338, 155.5)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_11fud"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vx30t"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vb0ja"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgcxy"]
+size = Vector2(493, 159)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_km18k"]
+size = Vector2(77, 149)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1tnyq"]
+size = Vector2(76, 11)
+
+[node name="corridor" type="Node2D"]
+script = ExtResource("1_kvptb")
+
+[node name="ExitBigRoad" type="Marker2D" parent="."]
+position = Vector2(1943, 224)
+
+[node name="Exit001" type="Marker2D" parent="."]
+position = Vector2(965, 186)
+
+[node name="corridor" type="TileMap" parent="."]
+position = Vector2(0, 163)
+scale = Vector2(2, 2)
 tile_set = ExtResource("1_q143l")
 format = 2
 layer_0/name = "background"
@@ -12,6 +55,73 @@ layer_2/name = "wallobject"
 layer_2/tile_data = PackedInt32Array(-262143, 131079, 28, -196607, 131079, 29, -262142, 196615, 28, -196606, 196615, 29, -262125, 131079, 28, -196589, 131079, 29, -262124, 196615, 28, -196588, 196615, 29, -262107, 131079, 28, -196571, 131079, 29, -262106, 196615, 28, -196570, 196615, 29, -262088, 131079, 28, -196552, 131079, 29, -262087, 196615, 28, -196551, 196615, 29, -131044, 7, 26, -65508, 7, 27, -131043, 65543, 26, -65507, 65543, 27, -131042, 131079, 26, -65506, 131079, 27, -131041, 196615, 26, -65505, 196615, 27, -262139, 196615, 70, -196603, 196615, 71, -262118, 196615, 70, -196582, 196615, 71, -262113, 196615, 70, -196577, 196615, 71, -262083, 196615, 70, -196547, 196615, 71, 52, 393224, 1, 46, 327688, 1, -196556, 393224, 0, -131020, 393224, 0, -65484, 393224, 0, -196562, 327688, 0, -131026, 327688, 0, -65490, 327688, 0, -196599, 327688, 0, -131063, 327688, 0, -65527, 327688, 0, 9, 327688, 1, -196593, 393224, 0, -131057, 393224, 0, -65521, 393224, 0, 15, 393224, 1, -327671, 327688, 0, -262135, 327688, 0, -327665, 393224, 0, -262129, 393224, 0, -327634, 327688, 0, -262098, 327688, 0, -327628, 393224, 0, -262092, 393224, 0)
 layer_3/name = "ground object"
 layer_3/tile_data = PackedInt32Array(-131040, 655367, 44, -65504, 655367, 45, 32, 655367, 46, -131039, 720903, 44, -65503, 720903, 45, 33, 720903, 46, -131046, 655367, 44, -65510, 655367, 45, 26, 655367, 46, -131045, 720903, 44, -65509, 720903, 45, 27, 720903, 46, -65521, 851975, 44, 15, 851975, 45, -65520, 917511, 44, 16, 917511, 45, -65491, 851975, 44, 45, 851975, 45, -65490, 917511, 44, 46, 917511, 45, -65484, 786439, 45, 52, 786439, 46, -65527, 786439, 45, 9, 786439, 46, -65483, 786439, 40, 53, 786439, 41, -65482, 786439, 40, 54, 786439, 41, -65481, 786439, 40, 55, 786439, 41, -65528, 786439, 40, 8, 786439, 41, -65529, 786439, 40, 7, 786439, 41, -65530, 786439, 40, 6, 786439, 41, -327652, 851975, 40, -262116, 851975, 41, -327651, 917511, 40, -262115, 917511, 41)
+metadata/_edit_group_ = true
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(936, 34)
+[node name="Boss" parent="." instance=ExtResource("2_n7i4p")]
+position = Vector2(1204, 193)
+scale = Vector2(0.5, 0.5)
+
+[node name="InteractArea" parent="Boss" instance=ExtResource("3_mt7q2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/InteractArea"]
+shape = SubResource("CircleShape2D_saqk0")
+
+[node name="Marker2D" type="Marker2D" parent="Boss/InteractArea"]
+position = Vector2(0, -107.25)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(479, 291)
+shape = SubResource("WorldBoundaryShape2D_5deyy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(153, 82.5)
+shape = SubResource("RectangleShape2D_ruxmc")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(708.25, 82)
+shape = SubResource("RectangleShape2D_tik3f")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1848, 82.25)
+shape = SubResource("RectangleShape2D_bkk6e")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2, 172)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_11fud")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(503, 2)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_vx30t")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2148, 149)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_vb0ja")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1244.5, 82.5)
+shape = SubResource("RectangleShape2D_pgcxy")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(960.5, 77.5)
+shape = SubResource("RectangleShape2D_km18k")
+
+[node name="ExitUndertaleFight" type="Marker2D" parent="."]
+position = Vector2(1204, 207)
+
+[node name="001" type="Area2D" parent="."]
+position = Vector2(940, 153)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="001"]
+position = Vector2(20, 4.5)
+shape = SubResource("RectangleShape2D_1tnyq")
+
+[connection signal="interact" from="Boss/InteractArea" to="." method="_on_interact_area_interact"]
+[connection signal="body_entered" from="001" to="." method="_on_001_body_entered"]

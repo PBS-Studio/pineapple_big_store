@@ -14,8 +14,9 @@ const player_turn_box_position: Vector2 = Vector2(0, 110)
 @onready var boundary = %Boundary
 @onready var fight_player = %FightPlayer
 
-var death_screen=preload("res://undertale_fight/scenes/death_screen.tscn")
+var death_screen = preload("res://undertale_fight/scenes/death_screen.tscn")
 @onready var inventory_backup = InventoryManager.inventory
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,7 +36,7 @@ func _on_attack_bar_damage(percentage):
 
 	boss_health.take_damage(damage)
 	boss_display.play_attacked_animation()
-	
+
 
 
 func _on_attack_bar_attack_bar_hiding():
@@ -66,5 +67,11 @@ func _on_player_health_bar_health_zeroed():
 
 
 func _on_boss_health_bar_health_zeroed():
+	await get_tree().create_timer(2.6).timeout
 	Bgm.stream_paused = false
-	# todo
+	RpgManager.change_scene_and_tp("corridor", "ExitUndertaleFight")
+
+func _input(_event):
+	if Input.is_action_just_pressed("p"):
+		boss_health.remain_health = 1
+		player_health.remain_health = 20
