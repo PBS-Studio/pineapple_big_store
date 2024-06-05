@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://b4uougra2nt13"]
+[gd_scene load_steps=26 format=3 uid="uid://b4uougra2nt13"]
 
 [ext_resource type="TileSet" uid="uid://bpqowov83si01" path="res://just_go_down/tile/big road.tres" id="1_b6dpn"]
 [ext_resource type="Script" path="res://just_go_down/Scenes/Player.gd" id="1_jlyhm"]
 [ext_resource type="Texture2D" uid="uid://dfaqb3o4pmu56" path="res://undertale_fight/assets/custom/pineapple_0001.png" id="3_skwab"]
 [ext_resource type="PackedScene" uid="uid://bmffyimo6k7tp" path="res://just_go_down/Object/floor.tscn" id="4_h4bvr"]
+[ext_resource type="FontFile" uid="uid://cqmxlxonew8a5" path="res://assets/fonts/Cubic_11/fonts/ttf/Cubic_11_1.100_R.ttf" id="4_i2d7h"]
 [ext_resource type="Script" path="res://just_go_down/Scenes/wall.gd" id="4_lmr0e"]
 [ext_resource type="AudioStream" uid="uid://ssp58d8foxs5" path="res://just_go_down/music/THE WORLD REVOLVING.mp3" id="4_q0wbq"]
 [ext_resource type="Texture2D" uid="uid://rl4djlqa0eb" path="res://assets/custom/mihon_idle.png" id="5_38elp"]
@@ -293,6 +294,7 @@ offset_top = -200.0
 offset_right = -460.0
 offset_bottom = -177.0
 scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("4_i2d7h")
 
 [node name="burst" type="Timer" parent="wall"]
 wait_time = 10.0

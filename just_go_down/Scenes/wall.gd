@@ -7,12 +7,12 @@ var score = 0
 
 func _ready():
 	Bgm.stream_paused = true
-	$justgodownbgm.stream_paused = true
+	$justgodownbgm.stream_paused = false
 	velocity.y = 100 
 	update_score()
 	
 func completegame():
-	#Bgm.stream_paused = false
+	Bgm.stream_paused = false
 	RpgManager.change_scene_and_tp("big_road","ExitCollegeRoad")
 
 func update_score():
