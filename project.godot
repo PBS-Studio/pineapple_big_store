@@ -29,8 +29,9 @@ Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 SceneManager="*res://addons/scene_manager/scene_manager.tscn"
 Scenes="*res://addons/scene_manager/scenes.gd"
 InventoryManager="*res://component/script/inventory_manager.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Mihon="*res://scenes/mihon.tscn"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+UpgradeDb="*res://a_way_home/Utility/upgrade_db.tscn"
 
 [dialogic]
 

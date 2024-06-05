@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var exp=1 #設定物件的經驗值量
+@export var exp=20 #設定物件的經驗值量
 
 var sprite_blue=preload("res://a_way_home/Objects/exp.png")
 var sprite_red=preload("res://a_way_home/Objects/exp_red.png")

@@ -101,6 +101,7 @@ collision_layer = 5
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_x43x3")
+experience = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_h7t2b")
@@ -108,7 +109,6 @@ animation = &"attack"
 frame_progress = 0.331955
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CapsuleShape2D_ng8qw")
 
 [node name="HurtBox" parent="." instance=ExtResource("7_m5345")]

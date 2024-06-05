@@ -688,8 +688,8 @@ radius = 8.8
 height = 43.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ubyq"]
-radius = 3.6
-height = 11.2
+radius = 4.8
+height = 15.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3ear"]
 size = Vector2(9.6, 14.6)
@@ -1081,7 +1081,6 @@ pineapple_bomb_attackspeed = 3.0
 position = Vector2(0.4, 0)
 sprite_frames = SubResource("SpriteFrames_yh2a4")
 animation = &"slash_side"
-frame = 1
 flip_h = true
 
 [node name="SwordHit" type="Area2D" parent="AnimatedSprite2D" groups=["attack"]]
@@ -1092,7 +1091,6 @@ collision_mask = 4
 script = ExtResource("8_rkqky")
 
 [node name="Sword_hit_collision" type="CollisionShape2D" parent="AnimatedSprite2D/SwordHit"]
-visible = false
 position = Vector2(0, 2.98023e-08)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_n1rfo")
@@ -1101,7 +1099,6 @@ shape = SubResource("CapsuleShape2D_n1rfo")
 wait_time = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CapsuleShape2D_1ubyq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -1134,6 +1131,7 @@ wait_time = 0.075
 unique_name_in_owner = true
 
 [node name="EnemyDetectionArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 4
 monitorable = false
@@ -1149,6 +1147,7 @@ libraries = {
 }
 
 [node name="GrabArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 8
 
@@ -1160,6 +1159,7 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
+visible = false
 position = Vector2(0.4, -0.8)
 shape = SubResource("CircleShape2D_5y057")
 
