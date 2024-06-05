@@ -4,7 +4,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if RpgManager.is_first_enter():
-		Dialogic.start("bar")
+		Dialogic.start("end")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -29,8 +29,8 @@ Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 SceneManager="*res://addons/scene_manager/scene_manager.tscn"
 Scenes="*res://addons/scene_manager/scenes.gd"
 InventoryManager="*res://component/script/inventory_manager.gd"
-Mihon="*res://scenes/mihon.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Mihon="*res://scenes/mihon.tscn"
 
 [dialogic]
 
@@ -58,9 +58,9 @@ glossary/default_case_sensitive=true
 layout/style_list=["res://theme/rpg_theme.tres"]
 layout/default_style="res://theme/rpg_theme.tres"
 variables={
-"001_complete": false,
 "fy_defeat": false,
-"godown_complete": false
+"godown_complete": true,
+"isekai_complete": false
 }
 text/letter_speed=0.05
 text/initial_text_reveal_skippable=true
