@@ -2,12 +2,13 @@ extends Node2D
 
 var limit = [0, 3, 2016, 291]
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if Dialogic.VAR.fy_defeat:
 		$Boss.queue_free()
-
+		if not Dialogic.VAR.talk:
+			Dialogic.VAR.talk = true
+			Dialogic.start("afterbattle")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

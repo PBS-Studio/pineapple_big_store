@@ -27,7 +27,8 @@ func _enter_godown():
 func _on_pineapplerain_body_entered(body):
 	if not Dialogic.VAR.isekai_complete:
 		return
-	else:
+	if not Dialogic.VAR.rain:
+		Dialogic.VAR.rain = true
 		Dialogic.start("pineapple_rain")
 		Dialogic.timeline_ended.connect(_enter_godown)
 
@@ -44,5 +45,6 @@ func _on_crash_body_entered(body):
 	if not Dialogic.VAR.godown_complete:
 		return
 	else:
+		$AnimationPlayer.play("crash")
 		Dialogic.start("crash")
 		Dialogic.timeline_ended.connect(_enter_crash)

@@ -60,7 +60,9 @@ layout/default_style="res://theme/rpg_theme.tres"
 variables={
 "fy_defeat": false,
 "godown_complete": false,
-"isekai_complete": false
+"isekai_complete": false,
+"rain": false,
+"talk": false
 }
 text/letter_speed=0.05
 text/initial_text_reveal_skippable=true
