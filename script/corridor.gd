@@ -30,7 +30,7 @@ func _on_001_body_entered(_body):
 	if not Dialogic.VAR.fy_defeat:
 		return
 
-	# TODO Add enter 001
+	RpgManager.change_scene_no_effect("001")
 
 
 func _on_big_road_body_entered(body):
