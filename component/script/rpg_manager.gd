@@ -40,6 +40,7 @@ func _move_mihon_to_root():
 		mihon.visible = false
 		mihon.reparent(get_tree().root)
 		mihon.get_node("Camera2D").enabled = false
+		mihon.position = Vector2.INF
 
 
 func _get_mihon() -> CharacterBody2D:
@@ -79,7 +80,7 @@ func _place_camera(mihon: CharacterBody2D) -> void:
 
 
 func is_first_enter() -> bool:
-	return not list.has(SceneManager._current_scene)
+	return not list.has(SceneManager._current_scene) or list[SceneManager._current_scene] == 0
 
 
 func enter_count() -> int:

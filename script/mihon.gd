@@ -21,6 +21,8 @@ enum Mode{
 
 func _ready():
 	set_process_input(false)
+	set_process(false)
+	position = Vector2.INF
 
 func ride_motorcycle():
 	mode = Mode.Motorcycle
