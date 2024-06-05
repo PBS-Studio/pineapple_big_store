@@ -42,7 +42,7 @@ func _physics_process(delta):
 	
 func enemy_hit(charge = 1):
 	hp -= charge
-	print("pineapple hp", hp)
+	#print("pineapple hp", hp)
 	#if hp<=0:
 		#emit_signal("remove_from_array",self) #發送刪除該bomb的訊號
 		#queue_free()

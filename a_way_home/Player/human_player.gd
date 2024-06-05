@@ -1,21 +1,29 @@
 extends CharacterBody2D
 
-var movement_speed=200.0
+var movement_speed=150.0
 var hp=80
 @onready var anim=get_node("AnimatedSprite2D")
 
+# exp
+var experience=0 # total exp
+var experience_level=1 
+var collected_experience=0 #吃到exp 瞬間增加的exp 量
+
 #Attacks
 var pineapple_bomb=preload("res://a_way_home/Player/Attack/pineapple_bomb.tscn")
+var javelin=preload("res://a_way_home/Player/Attack/javelin.tscn")
+
 
 #AttackNodes
 @onready var pineapple_bomb_Timer=get_node("%Pineapple_bomb_Timer")
 @onready var pineapple_attack_Timer=get_node("%Pineapple_attack_Timer")
 @onready var sword_hit_timer=$AnimatedSprite2D/SwordHit/Sword_hit_timer
 @onready var animationPlayer=$AnimationPlayer
+@onready var javelinBase=get_node("%JavelinBase")
 
 #Pineapple_bomb
 var pineapple_bomb_ammo=0
-var pineapple_bomb_baseammo=1
+var pineapple_bomb_baseammo=0
 @export var pineapple_bomb_attackspeed=1.5 #設定攻擊間隔
 var pineapple_bome_level=1
 
@@ -25,13 +33,28 @@ var sword_hit_damage=5
 var sword_hit_level=1
 var sword_hitting=0
 
+#Javelin
+var javelin_ammo=1
+var javelin_level=1
 
 #Enemy Related
 var enemy_close =[] #store enemy that is closing
 
+#GUI
+@onready var expBar=$%ExperienceBar
+@onready var lbl_level=$%Label_level
+@onready var levelPanel=$%LevelUp
+@onready var upgradeOptions=$%UpgradeOptions
+@onready var itemOptions=preload("res://a_way_home/Utility/item_option.tscn")
+@onready var sndLevelUp=$%snd_levelUp
+
+
 func _ready():
 	anim.play("run")
 	attack()
+	# 初始化 expBar
+	set_expBar(experience,calculate_experienceCap())
+	
 	#連接Sword_hit_timer 
 	sword_hit_timer.connect("timeout",Callable(self,"trigger_sword_hit"))
 	
@@ -89,6 +112,9 @@ func attack():
 		if sword_hit_timer.is_stopped():
 			sword_hit_timer.start()
 			print("sword_hit_start")
+	#javelin
+	if javelin_level>0:
+		spawn_javelin()
 
 func _on_hurt_box_hurt(damage, _angle, _knockback): # 參數加上 "_" 告訴自己目前沒用到這個參數
 	hp-=damage
@@ -154,10 +180,94 @@ func trigger_sword_hit():
 		await animationPlayer.animation_finished
 		sword_hitting=0
 		
-		
-		
 
 #func _on_sword_hit_timer_timeout():
 	#sword_hit_timer.start()
 
+func spawn_javelin():
+	var get_javelin_total=javelinBase.get_child_count()
+	var calc_spawns=javelin_ammo -get_javelin_total #計算需要生成多少javelin
+	while calc_spawns>0:
+		var javelin_spawn=javelin.instantiate()
+		javelin_spawn.global_position=global_position
+		javelinBase.add_child(javelin_spawn)
+		calc_spawns-=1
 
+# get exp
+func _on_grab_area_area_entered(area):
+	var nodes = get_tree().get_nodes_in_group("loot")
+	var first_node = nodes[0]        
+	print("First node in group " + "loot" + " is: " + first_node.name)  #first node 是 Loot
+	if area.is_in_group("loot"):
+		area.target=self # exp 的target 為 human_player
+	
+func _on_collect_area_area_entered(area):
+	if area.is_in_group("loot"):
+		var exp=area.collect()
+		calculate_experience(exp)
+			
+func calculate_experience(exp):
+	var exp_required=calculate_experienceCap()
+	collected_experience+= exp #吃到exp 當下獲得的exp
+	if experience + collected_experience >= exp_required:
+		collected_experience -= (exp_required - experience) #升等，減去需要的exp 加上原有的exp
+		experience_level+=1
+		lbl_level.text=str("Level :",experience_level)
+		experience=0
+		exp_required=calculate_experienceCap() #算下次升等所需exp
+		#level up
+		levelUp()
+		
+		calculate_experience(0) #重新計算是否有剩餘exp 足夠升等
+	else:
+		experience+=collected_experience
+		collected_experience=0 #clear
+		
+	# 計算完剩餘exp後 更新expBar
+	set_expBar(experience,exp_required)
+	
+	
+	
+func calculate_experienceCap(): # exp cap =exp capacity 上限
+	var exp_cap :int
+	if experience_level<=20:
+		exp_cap=experience_level*5 #上限一次加5
+	elif experience_level<=40:
+		exp_cap= 95+ (experience_level-19)*8 #上限一次加8
+	else:
+		exp_cap= 255 +(experience_level-39)*12
+	
+	return exp_cap
+	
+func set_expBar(set_value=1, set_max_value=100):
+	expBar.value=set_value # 更新當前total exp
+	expBar.max_value=set_max_value # 更新當前 level 的最大exp
+	
+func levelUp():
+	sndLevelUp.play()
+	lbl_level.text=str("Level :",experience_level)
+	var tween=levelPanel.create_tween()
+	tween.tween_property(levelPanel,"position",Vector2(376,74),0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	# panel 移動時間0.2 second
+	tween.play()
+	levelPanel.visible=true
+	
+	# spawn options in GUI
+	var options=0
+	var optionsMax=3
+	while options < optionsMax:
+		var option_choice=itemOptions.instantiate()
+		upgradeOptions.add_child(option_choice)
+		options+=1
+		
+	#---
+	get_tree().paused=true
+	
+func upgrade_character(upgrade): #mouse click之後
+	var option_children=upgradeOptions.get_children()
+	for i in option_children:
+		i.queue_free()
+	levelPanel.visible=false
+	levelPanel.position=Vector2(1276,74)
+	get_tree().paused=false
+	

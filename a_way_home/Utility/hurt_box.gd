@@ -7,7 +7,7 @@ extends Area2D
 
 signal hurt(damage,angle,knockback) #自定一個名為 hurt 的信號，帶有參數 damage,angle,knockback
 
-var hit_once_array=[] #紀錄打過一次的敵人
+var hit_once_array=[] #紀錄被哪件武器打過
 
 func _on_area_entered(area):
 	if area.is_in_group("attack"): #屬於attack group的東西進入area
