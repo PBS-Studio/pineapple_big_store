@@ -78,6 +78,8 @@ radius = 4.99259
 height = 24.0
 
 [node name="Mihon" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_dwnty")
@@ -92,6 +94,16 @@ offset = Vector2(0, -23)
 position = Vector2(0, -5)
 rotation = 1.57807
 shape = SubResource("CapsuleShape2D_fdw3r")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1.42857, 0)
+zoom = Vector2(3, 3)
+limit_left = -256
+limit_top = -240
+limit_right = 303
+limit_bottom = 224
+limit_smoothed = true
+position_smoothing_enabled = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

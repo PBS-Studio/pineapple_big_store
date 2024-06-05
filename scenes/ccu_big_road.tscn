@@ -1,10 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnm73kn0bmgck"]
+[gd_scene load_steps=5 format=3 uid="uid://bnm73kn0bmgck"]
 
+[ext_resource type="Script" path="res://script/ccu_big_road.gd" id="1_aj5x3"]
 [ext_resource type="TileSet" uid="uid://bpqowov83si01" path="res://just_go_down/tile/big road.tres" id="1_wgb5b"]
+[ext_resource type="Texture2D" uid="uid://bs72vgja3x6gh" path="res://assets/custom/logo.png" id="2_bq6k1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8iku7"]
+size = Vector2(596, 20)
 
 [node name="ccu_big_road" type="Node2D"]
+script = ExtResource("1_aj5x3")
+
+[node name="ExitCollegeRoad" type="Marker2D" parent="."]
+position = Vector2(113, 2649)
+rotation = 1.5708
+
+[node name="ExitCorridor" type="Marker2D" parent="."]
+position = Vector2(750, 128)
 
 [node name="CCU big road" type="TileMap" parent="."]
+scale = Vector2(3, 3)
 tile_set = ExtResource("1_wgb5b")
 format = 2
 layer_0/name = "underground"
@@ -17,8 +31,25 @@ layer_3/tile_data = PackedInt32Array()
 layer_4/name = "airair object"
 layer_4/tile_data = PackedInt32Array()
 
-[node name="exitcollegeroad" type="Marker2D" parent="CCU big road"]
-position = Vector2(248, 723)
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(744, 2665.5)
+scale = Vector2(12.4531, 12.4531)
+texture = ExtResource("2_bq6k1")
 
-[node name="gocorridor" type="Marker2D" parent="CCU big road"]
-position = Vector2(248, 16)
+[node name="Corridor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Corridor"]
+position = Vector2(746, -125)
+shape = SubResource("RectangleShape2D_8iku7")
+
+[node name="Border" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Border"]
+polygon = PackedVector2Array(445, 2, 444, 2110, 433, 2160, 385, 2208, 193, 2400, 96, 2400, 96, 2447, -47, 2448, -47, 2878, 97, 2877, 383, 3168, 384, 3213, 479, 3214, 482, 3358, 1008, 3359, 1007, 3215, 1103, 3215, 1104, 3169, 1344, 2927, 1583, 2927, 1583, 2448, 1349, 2451, 1055, 2160, 1044, 2111, 1046, 0, 1046, -135, 447, -136, 445, 26, 428, -40, 372, -161, 674, -177, 1149, -180, 1186, 645, 1186, 2031, 1824, 2442, 1862, 3077, 959, 3542, 177, 3413, -287, 2861, -261, 2012, 191, 1665, 303, 658)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Border"]
+polygon = PackedVector2Array(444, 2320, 440, 2362, 395, 2363, 390, 2407, 344, 2412, 338, 2545, 294, 2555, 294, 2823, 342, 2824, 348, 2963, 382, 2968, 390, 3010, 434, 3016, 445, 3061, 581, 3064, 587, 3110, 900, 3111, 907, 3064, 1050, 3059, 1052, 3019, 1096, 3011, 1101, 2965, 1142, 2962, 1146, 2825, 1192, 2817, 1194, 2556, 1151, 2545, 1144, 2409, 1099, 2405, 1093, 2362, 1052, 2359, 1045, 2314, 910, 2308, 904, 2269, 594, 2265, 582, 2304)
+
+[connection signal="body_entered" from="Corridor" to="." method="_on_corridor_body_entered"]

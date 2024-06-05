@@ -1,6 +1,10 @@
 extends Area2D
 
-@export var active: bool = true
+@export var active: bool = true:
+	set(value):
+		active = value
+		if not active and is_node_ready():
+			InteractManager.unregist_interact(self)
 
 var indicator: bool:
 	get:

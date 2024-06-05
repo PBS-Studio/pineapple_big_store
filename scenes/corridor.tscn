@@ -1,8 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo06u63buef16"]
+[gd_scene load_steps=13 format=3 uid="uid://bo06u63buef16"]
 
+[ext_resource type="Script" path="res://script/corridor.gd" id="1_kvptb"]
 [ext_resource type="TileSet" uid="uid://bpqowov83si01" path="res://just_go_down/tile/big road.tres" id="1_q143l"]
+[ext_resource type="PackedScene" uid="uid://c4hb73n1dy8oc" path="res://undertale_fight/scenes/boss.tscn" id="2_n7i4p"]
+[ext_resource type="PackedScene" uid="uid://lhm52vkl8d36" path="res://component/interact_area.tscn" id="3_mt7q2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_saqk0"]
+radius = 44.1898
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5deyy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruxmc"]
+size = Vector2(154, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tik3f"]
+size = Vector2(499, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkk6e"]
+size = Vector2(170, 79)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_11fud"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vx30t"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vb0ja"]
 
 [node name="corridor" type="Node2D"]
+script = ExtResource("1_kvptb")
+
+[node name="ExitBigRoad" type="Marker2D" parent="."]
+position = Vector2(936, 197)
+
+[node name="Exit001" type="Marker2D" parent="."]
+position = Vector2(466, 174)
 
 [node name="corridor" type="TileMap" parent="."]
 position = Vector2(0, 163)
@@ -17,8 +47,51 @@ layer_3/name = "ground object"
 layer_3/tile_data = PackedInt32Array(-131040, 655367, 44, -65504, 655367, 45, 32, 655367, 46, -131039, 720903, 44, -65503, 720903, 45, 33, 720903, 46, -131046, 655367, 44, -65510, 655367, 45, 26, 655367, 46, -131045, 720903, 44, -65509, 720903, 45, 27, 720903, 46, -65521, 851975, 44, 15, 851975, 45, -65520, 917511, 44, 16, 917511, 45, -65491, 851975, 44, 45, 851975, 45, -65490, 917511, 44, 46, 917511, 45, -65484, 786439, 45, 52, 786439, 46, -65527, 786439, 45, 9, 786439, 46, -65483, 786439, 40, 53, 786439, 41, -65482, 786439, 40, 54, 786439, 41, -65481, 786439, 40, 55, 786439, 41, -65528, 786439, 40, 8, 786439, 41, -65529, 786439, 40, 7, 786439, 41, -65530, 786439, 40, 6, 786439, 41, -327652, 851975, 40, -262116, 851975, 41, -327651, 917511, 40, -262115, 917511, 41)
 metadata/_edit_group_ = true
 
-[node name="exitbigroad" type="Marker2D" parent="corridor"]
-position = Vector2(936, 34)
+[node name="Boss" parent="." instance=ExtResource("2_n7i4p")]
+position = Vector2(690, 190)
+scale = Vector2(0.5, 0.5)
 
-[node name="go001" type="Marker2D" parent="corridor"]
-position = Vector2(466, 11)
+[node name="InteractArea" parent="Boss" instance=ExtResource("3_mt7q2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/InteractArea"]
+shape = SubResource("CircleShape2D_saqk0")
+
+[node name="Marker2D" type="Marker2D" parent="Boss/InteractArea"]
+position = Vector2(0, -107.25)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(479, 227)
+shape = SubResource("WorldBoundaryShape2D_5deyy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(77, 123)
+shape = SubResource("RectangleShape2D_ruxmc")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(496.5, 123)
+shape = SubResource("RectangleShape2D_tik3f")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(923, 122.5)
+shape = SubResource("RectangleShape2D_bkk6e")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-56, 173)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_11fud")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(471, 22)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_vx30t")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1076, 160)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_vb0ja")
+
+[connection signal="interact" from="Boss/InteractArea" to="." method="_on_interact_area_interact"]
