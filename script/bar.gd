@@ -14,9 +14,11 @@ func _ready():
 func _process(delta):
 	pass
 
-
+var has_enter = false
 func _on_exit_body_entered(body):
-	print(body)
+	if has_enter:
+		return
+	has_enter = true
 	var mihon = body as CharacterBody2D
 	mihon.set_process_input(false)
 	mihon.set_process(false)
@@ -24,5 +26,7 @@ func _on_exit_body_entered(body):
 	var tween = create_tween()
 	tween.tween_property(camera, "global_position", spin.global_position, 2.0)
 	tween.parallel().tween_property(camera, "zoom", 6 * Vector2.ONE, 6.0)
+	tween.tween_callback(_end)
 
-	# TODO
+func _end():
+	RpgManager.change_scene_no_effect("end")
