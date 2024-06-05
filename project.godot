@@ -30,6 +30,7 @@ SceneManager="*res://addons/scene_manager/scene_manager.tscn"
 Scenes="*res://addons/scene_manager/scenes.gd"
 InventoryManager="*res://component/script/inventory_manager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Mihon="res://scenes/mihon.tscn"
 
 [dialogic]
 
@@ -56,7 +57,9 @@ directories/dtl_directory={
 glossary/default_case_sensitive=true
 layout/style_list=["res://theme/rpg_theme.tres"]
 layout/default_style="res://theme/rpg_theme.tres"
-variables={}
+variables={
+"fy_defeat": false
+}
 text/letter_speed=0.05
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1

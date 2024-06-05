@@ -14,5 +14,5 @@ func _process(delta):
 
 
 func _on_button_click():
-	RpgManager.change_scene("pineapple_field")
+	RpgManager.change_scene_and_tp("pineapple_field", "MainMenu")
 	Bgm.stream_paused = false

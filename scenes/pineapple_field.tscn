@@ -970,4 +970,6 @@ rotation_3d = 0.436407
 position = Vector2(250, 0)
 rotation = 3.14159
 
+[node name="MainMenu" type="Marker2D" parent="."]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

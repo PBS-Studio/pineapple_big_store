@@ -8,7 +8,7 @@ const limit:Array[int] = [-256,-240,263,224]
 func _ready():
 	if RpgManager.is_first_enter():
 		Dialogic.start("wakeup")
-		add_child(mihon.instantiate())
+		#add_child(mihon.instantiate())
 		
 
 
