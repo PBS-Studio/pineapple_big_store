@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bo06u63buef16"]
+[gd_scene load_steps=16 format=3 uid="uid://bo06u63buef16"]
 
 [ext_resource type="Script" path="res://script/corridor.gd" id="1_kvptb"]
 [ext_resource type="TileSet" uid="uid://bpqowov83si01" path="res://just_go_down/tile/big road.tres" id="1_q143l"]
@@ -30,6 +30,9 @@ size = Vector2(493, 159)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_km18k"]
 size = Vector2(77, 149)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1tnyq"]
+size = Vector2(76, 11)
 
 [node name="corridor" type="Node2D"]
 script = ExtResource("1_kvptb")
@@ -112,4 +115,13 @@ shape = SubResource("RectangleShape2D_km18k")
 [node name="ExitUndertaleFight" type="Marker2D" parent="."]
 position = Vector2(1204, 207)
 
+[node name="001" type="Area2D" parent="."]
+position = Vector2(940, 153)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="001"]
+position = Vector2(20, 4.5)
+shape = SubResource("RectangleShape2D_1tnyq")
+
 [connection signal="interact" from="Boss/InteractArea" to="." method="_on_interact_area_interact"]
+[connection signal="body_entered" from="001" to="." method="_on_001_body_entered"]
