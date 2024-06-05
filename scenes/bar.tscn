@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://f5tsvucablgu"]
+[gd_scene load_steps=20 format=3 uid="uid://f5tsvucablgu"]
 
 [ext_resource type="TileSet" uid="uid://bpqowov83si01" path="res://just_go_down/tile/big road.tres" id="1_tfqop"]
+[ext_resource type="Script" path="res://scenes/bar.gd" id="1_ukb46"]
 [ext_resource type="Texture2D" uid="uid://wad0fr1fxcxy" path="res://assets/custom/spain.png" id="2_chm7b"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4rmts"]
@@ -84,7 +85,11 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_722sq"]
+size = Vector2(23, 69)
+
 [node name="bar" type="Node2D"]
+script = ExtResource("1_ukb46")
 
 [node name="bar" type="TileMap" parent="."]
 modulate = Color(0.345098, 0.301961, 0.223529, 1)
@@ -172,10 +177,18 @@ position = Vector2(900, 293)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_b7m6l")
 autoplay = "default"
-frame_progress = 0.574524
+frame_progress = 0.388778
 
 [node name="go" type="Marker2D" parent="."]
 position = Vector2(1107, 628)
 
 [node name="come" type="Marker2D" parent="."]
 position = Vector2(834, 351)
+
+[node name="Exit" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(1176, 626)
+shape = SubResource("RectangleShape2D_722sq")
+
+[connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
