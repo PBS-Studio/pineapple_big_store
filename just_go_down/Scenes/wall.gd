@@ -7,12 +7,13 @@ var score = 0
 
 func _ready():
 	Bgm.stream_paused = true
+	$justgodownbgm.stream_paused = false
 	velocity.y = 100 
 	update_score()
 	
 func completegame():
 	Bgm.stream_paused = false
-	#RpgManager.change_scene_and_tp("res://scenes/ccu_big_road.tscn","exitlittleroad")
+	#RpgManager.change_scene_and_tp("big_road","ExitLittleRoad")
 
 func update_score():
 	$Label.text = str(floori(score))

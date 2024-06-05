@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://crkmjw28qd2u5"
+path="res://.godot/imported/William Benckert - Glitching Through the Sky.mp3-789b43c939b29aff5cb75a4da6282823.mp3str"
+
+[deps]
+
+source_file="res://just_go_down/music/William Benckert - Glitching Through the Sky.mp3"
+dest_files=["res://.godot/imported/William Benckert - Glitching Through the Sky.mp3-789b43c939b29aff5cb75a4da6282823.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
