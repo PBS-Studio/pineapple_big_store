@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://p358bmr44qlf" path="res://a_way_home/Enemies/sprites/World/Night_BG.png" id="1_850e5"]
 [ext_resource type="Script" path="res://a_way_home/World.gd" id="1_u2f4t"]
 [ext_resource type="PackedScene" uid="uid://bsd42ir3a14ov" path="res://a_way_home/Player/human_player.tscn" id="3_cbc15"]
-[ext_resource type="PackedScene" uid="uid://bedu5qn4i7xwc" path="res://a_way_home/Rushia ghost.tscn" id="3_oxdey"]
+[ext_resource type="PackedScene" uid="uid://bedu5qn4i7xwc" path="res://a_way_home/Enemies/sprites/World/Rushia ghost.tscn" id="3_oxdey"]
 [ext_resource type="PackedScene" uid="uid://dwqiml08xxeqe" path="res://a_way_home/Utility/enemy_spawner.tscn" id="4_k3hyg"]
 [ext_resource type="PackedScene" uid="uid://dary4kuc46weo" path="res://a_way_home/Objects/exp.tscn" id="5_78qtm"]
 [ext_resource type="AudioStream" uid="uid://co1iedyrpgw8r" path="res://a_way_home/survivor template/Audio/my audio/Rushia Lord of the Screams Black Metal潤羽るしあブラックメタル.mp3" id="6_q82sw"]

@@ -1,11 +1,93 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnm73kn0bmgck"]
+[gd_scene load_steps=12 format=3 uid="uid://bnm73kn0bmgck"]
 
 [ext_resource type="Script" path="res://script/ccu_big_road.gd" id="1_aj5x3"]
 [ext_resource type="TileSet" uid="uid://bpqowov83si01" path="res://just_go_down/tile/big road.tres" id="1_wgb5b"]
 [ext_resource type="Texture2D" uid="uid://bs72vgja3x6gh" path="res://assets/custom/logo.png" id="2_bq6k1"]
+[ext_resource type="Texture2D" uid="uid://4d3i1ervo0fi" path="res://just_go_down/Images/tilemap_packed.png" id="4_06wvd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8iku7"]
 size = Vector2(596, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aoiyq"]
+size = Vector2(335, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0qi0"]
+size = Vector2(44, 427)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qesrh"]
+size = Vector2(106, 276)
+
+[sub_resource type="Animation" id="Animation_gfc4m"]
+resource_name = "crash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-136, 2655), Vector2(80, 2655)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xe2ti"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(11, 2648)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r3kb2"]
+_data = {
+"RESET": SubResource("Animation_xe2ti"),
+"crash": SubResource("Animation_gfc4m")
+}
 
 [node name="ccu_big_road" type="Node2D"]
 script = ExtResource("1_aj5x3")
@@ -52,4 +134,39 @@ polygon = PackedVector2Array(445, 2, 444, 2110, 433, 2160, 385, 2208, 193, 2400,
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Border"]
 polygon = PackedVector2Array(444, 2320, 440, 2362, 395, 2363, 390, 2407, 344, 2412, 338, 2545, 294, 2555, 294, 2823, 342, 2824, 348, 2963, 382, 2968, 390, 3010, 434, 3016, 445, 3061, 581, 3064, 587, 3110, 900, 3111, 907, 3064, 1050, 3059, 1052, 3019, 1096, 3011, 1101, 2965, 1142, 2962, 1146, 2825, 1192, 2817, 1194, 2556, 1151, 2545, 1144, 2409, 1099, 2405, 1093, 2362, 1052, 2359, 1045, 2314, 910, 2308, 904, 2269, 594, 2265, 582, 2304)
 
+[node name="pineapplerain" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pineapplerain"]
+position = Vector2(744, 128)
+shape = SubResource("RectangleShape2D_aoiyq")
+
+[node name="college_road" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="college_road"]
+position = Vector2(-24, 2662.5)
+shape = SubResource("RectangleShape2D_q0qi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(11, 2648)
+scale = Vector2(2, 2)
+texture = ExtResource("4_06wvd")
+region_enabled = true
+region_rect = Rect2(336, 272, 32, 16)
+
+[node name="crash" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="crash"]
+position = Vector2(113, 2650)
+shape = SubResource("RectangleShape2D_qesrh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r3kb2")
+}
+
 [connection signal="body_entered" from="Corridor" to="." method="_on_corridor_body_entered"]
+[connection signal="area_shape_entered" from="pineapplerain" to="." method="_on_pineapplerain_area_shape_entered"]
+[connection signal="body_entered" from="pineapplerain" to="." method="_on_pineapplerain_body_entered"]
+[connection signal="body_entered" from="college_road" to="." method="_on_college_road_body_entered"]
+[connection signal="body_entered" from="crash" to="." method="_on_crash_body_entered"]

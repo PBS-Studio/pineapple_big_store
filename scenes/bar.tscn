@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://f5tsvucablgu"]
+[gd_scene load_steps=21 format=3 uid="uid://f5tsvucablgu"]
 
+[ext_resource type="Script" path="res://script/bar.gd" id="1_7mhwa"]
 [ext_resource type="TileSet" uid="uid://bpqowov83si01" path="res://just_go_down/tile/big road.tres" id="1_tfqop"]
-[ext_resource type="Script" path="res://scenes/bar.gd" id="1_ukb46"]
 [ext_resource type="Texture2D" uid="uid://wad0fr1fxcxy" path="res://assets/custom/spain.png" id="2_chm7b"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4rmts"]
@@ -11,6 +11,9 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tmi84"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6wnem"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgjo5"]
+size = Vector2(32.9999, 128.333)
 
 [sub_resource type="Gradient" id="Gradient_c2iv2"]
 offsets = PackedFloat32Array(0, 0.631148)
@@ -86,10 +89,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_722sq"]
-size = Vector2(23, 69)
+size = Vector2(23, 80.5)
 
 [node name="bar" type="Node2D"]
-script = ExtResource("1_ukb46")
+script = ExtResource("1_7mhwa")
 
 [node name="bar" type="TileMap" parent="."]
 modulate = Color(0.345098, 0.301961, 0.223529, 1)
@@ -108,6 +111,8 @@ layer_3/tile_data = PackedInt32Array(851970, 786439, 74, 851971, 851975, 74, 851
 metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="bar"]
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bar/StaticBody2D"]
 position = Vector2(186, 256)
@@ -127,6 +132,37 @@ shape = SubResource("WorldBoundaryShape2D_tmi84")
 position = Vector2(418, 144)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_6wnem")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="bar/StaticBody2D"]
+position = Vector2(400.167, 155.833)
+shape = SubResource("RectangleShape2D_wgjo5")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="bar"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bar/StaticBody2D2"]
+position = Vector2(186, 256)
+shape = SubResource("WorldBoundaryShape2D_4rmts")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bar/StaticBody2D2"]
+position = Vector2(236, 95)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_sck1q")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="bar/StaticBody2D2"]
+position = Vector2(0, 169)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_tmi84")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="bar/StaticBody2D2"]
+position = Vector2(418, 144)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_6wnem")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="bar/StaticBody2D2"]
+position = Vector2(400.167, 155.833)
+shape = SubResource("RectangleShape2D_wgjo5")
 
 [node name="Light" type="Node2D" parent="bar"]
 
@@ -172,12 +208,12 @@ scale = Vector2(2.03223, 2.03223)
 color = Color(0.741176, 0.411765, 0.0666667, 1)
 texture = SubResource("GradientTexture2D_bh74j")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Spin" type="AnimatedSprite2D" parent="."]
 position = Vector2(900, 293)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_b7m6l")
 autoplay = "default"
-frame_progress = 0.388778
+frame_progress = 0.330055
 
 [node name="go" type="Marker2D" parent="."]
 position = Vector2(1107, 628)
@@ -186,9 +222,10 @@ position = Vector2(1107, 628)
 position = Vector2(834, 351)
 
 [node name="Exit" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-position = Vector2(1176, 626)
+position = Vector2(1239, 609.75)
 shape = SubResource("RectangleShape2D_722sq")
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
