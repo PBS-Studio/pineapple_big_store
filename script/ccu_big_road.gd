@@ -44,7 +44,14 @@ func  _enter_crash():
 func _on_crash_body_entered(body):
 	if not Dialogic.VAR.godown_complete:
 		return
-	else:
-		$AnimationPlayer.play("crash")
-		Dialogic.start("crash")
-		Dialogic.timeline_ended.connect(_enter_crash)
+	
+	$AnimationPlayer.play("crash")
+	Dialogic.start("crash")
+	Dialogic.timeline_ended.connect(_enter_crash)
+	Dialogic.signal_event.connect(_black_screen)
+	
+func _black_screen(ev):
+	if ev != "crash":
+		return
+	
+	$Crash.visible = true

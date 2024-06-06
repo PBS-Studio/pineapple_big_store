@@ -11,4 +11,5 @@ func _process(delta):
 	pass
 
 func _input(_event):
-	RpgManager.change_scene_no_effect("main_menu")
+	if Input.is_action_just_pressed("ui_accept"):
+		RpgManager.change_scene_no_effect("main_menu")

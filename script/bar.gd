@@ -24,8 +24,9 @@ func _on_exit_body_entered(body):
 	mihon.set_process(false)
 	var camera = mihon.get_node("Camera2D")
 	var tween = create_tween()
-	tween.tween_property(camera, "global_position", spin.global_position, 2.0)
-	tween.parallel().tween_property(camera, "zoom", 6 * Vector2.ONE, 6.0)
+	tween.tween_property(camera, "zoom", 2 * Vector2.ONE, 2.0)
+	tween.parallel().tween_property(camera, "global_position", spin.global_position, 2.0)
+	tween.tween_property(camera, "zoom", 6 * Vector2.ONE, 4.0)
 	tween.tween_callback(_end).set_delay(2.0)
 
 func _end():

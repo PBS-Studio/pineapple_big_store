@@ -30,8 +30,8 @@ SceneManager="*res://addons/scene_manager/scene_manager.tscn"
 Scenes="*res://addons/scene_manager/scenes.gd"
 InventoryManager="*res://component/script/inventory_manager.gd"
 Mihon="*res://scenes/mihon.tscn"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 UpgradeDb="*res://a_way_home/Utility/upgrade_db.tscn"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
@@ -62,6 +62,7 @@ variables={
 "fy_defeat": false,
 "godown_complete": false,
 "isekai_complete": false,
+"isekai_talk": false,
 "rain": false,
 "talk": false
 }
