@@ -1081,6 +1081,7 @@ pineapple_bomb_attackspeed = 3.0
 position = Vector2(0.4, 0)
 sprite_frames = SubResource("SpriteFrames_yh2a4")
 animation = &"slash_side"
+frame = 1
 flip_h = true
 
 [node name="SwordHit" type="Area2D" parent="AnimatedSprite2D" groups=["attack"]]
