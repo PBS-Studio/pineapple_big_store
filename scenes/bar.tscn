@@ -137,32 +137,10 @@ shape = SubResource("WorldBoundaryShape2D_6wnem")
 position = Vector2(400.167, 155.833)
 shape = SubResource("RectangleShape2D_wgjo5")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="bar"]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bar/StaticBody2D2"]
-position = Vector2(186, 256)
-shape = SubResource("WorldBoundaryShape2D_4rmts")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="bar/StaticBody2D2"]
-position = Vector2(236, 95)
-rotation = 3.14159
-shape = SubResource("WorldBoundaryShape2D_sck1q")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="bar/StaticBody2D2"]
-position = Vector2(0, 169)
-rotation = 1.5708
-shape = SubResource("WorldBoundaryShape2D_tmi84")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="bar/StaticBody2D2"]
-position = Vector2(418, 144)
-rotation = -1.5708
-shape = SubResource("WorldBoundaryShape2D_6wnem")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="bar/StaticBody2D2"]
-position = Vector2(400.167, 155.833)
-shape = SubResource("RectangleShape2D_wgjo5")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bar/StaticBody2D"]
+position = Vector2(-0.666667, 30)
+scale = Vector2(0.333333, 0.333333)
+polygon = PackedVector2Array(879, 289, 879, 515, 1045, 516, 1046, 487, 913, 487, 914, 319, 1012, 319, 1011, 419, 1046, 418, 1045, 285, 878, 282)
 
 [node name="Light" type="Node2D" parent="bar"]
 
@@ -227,10 +205,5 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
 position = Vector2(1216.25, 622.75)
 shape = SubResource("RectangleShape2D_722sq")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(879, 289, 879, 515, 1045, 516, 1046, 487, 913, 487, 914, 319, 1012, 319, 1011, 419, 1046, 418, 1045, 285, 878, 282)
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]

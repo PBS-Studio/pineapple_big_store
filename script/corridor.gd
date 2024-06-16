@@ -9,6 +9,11 @@ func _ready():
 		if not Dialogic.VAR.talk:
 			Dialogic.VAR.talk = true
 			Dialogic.start("afterbattle")
+	
+	if Dialogic.VAR.isekai_complete and not Dialogic.VAR.isekai_talk:
+		Dialogic.VAR.isekai_talk = true
+		Dialogic.start("isekaiafter")
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -28,7 +33,7 @@ func _enter_undertale_fight():
 
 
 func _on_001_body_entered(_body):
-	if not Dialogic.VAR.fy_defeat:
+	if not Dialogic.VAR.fy_defeat or Dialogic.VAR.isekai_complete:
 		return
 	Dialogic.VAR.isekai_complete = true
 	RpgManager.change_scene_no_effect("001")

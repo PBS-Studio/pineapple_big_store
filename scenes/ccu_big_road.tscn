@@ -165,6 +165,15 @@ libraries = {
 "": SubResource("AnimationLibrary_r3kb2")
 }
 
+[node name="Crash" type="ColorRect" parent="."]
+visible = false
+z_index = 2
+offset_left = -6342.0
+offset_top = -1538.0
+offset_right = 5572.0
+offset_bottom = 7151.0
+color = Color(0, 0, 0, 1)
+
 [connection signal="body_entered" from="Corridor" to="." method="_on_corridor_body_entered"]
 [connection signal="area_shape_entered" from="pineapplerain" to="." method="_on_pineapplerain_area_shape_entered"]
 [connection signal="body_entered" from="pineapplerain" to="." method="_on_pineapplerain_body_entered"]

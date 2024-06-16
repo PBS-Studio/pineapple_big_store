@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjg4r1tcsgin7"]
+[gd_scene load_steps=13 format=3 uid="uid://cjg4r1tcsgin7"]
 
 [ext_resource type="Texture2D" uid="uid://p358bmr44qlf" path="res://a_way_home/Enemies/sprites/World/Night_BG.png" id="1_850e5"]
 [ext_resource type="Script" path="res://a_way_home/World.gd" id="1_u2f4t"]
 [ext_resource type="PackedScene" uid="uid://bsd42ir3a14ov" path="res://a_way_home/Player/human_player.tscn" id="3_cbc15"]
-[ext_resource type="PackedScene" uid="uid://bedu5qn4i7xwc" path="res://a_way_home/Enemies/sprites/World/Rushia ghost.tscn" id="3_oxdey"]
+[ext_resource type="PackedScene" uid="uid://bedu5qn4i7xwc" path="res://a_way_home/Rushia ghost.tscn" id="3_oxdey"]
 [ext_resource type="PackedScene" uid="uid://dwqiml08xxeqe" path="res://a_way_home/Utility/enemy_spawner.tscn" id="4_k3hyg"]
+[ext_resource type="Texture2D" uid="uid://hea1j03kmpir" path="res://a_way_home/Player/swampy/swampy.png" id="5_5wd7y"]
 [ext_resource type="PackedScene" uid="uid://dary4kuc46weo" path="res://a_way_home/Objects/exp.tscn" id="5_78qtm"]
 [ext_resource type="AudioStream" uid="uid://co1iedyrpgw8r" path="res://a_way_home/survivor template/Audio/my audio/Rushia Lord of the Screams Black Metal潤羽るしあブラックメタル.mp3" id="6_q82sw"]
 [ext_resource type="AudioStream" uid="uid://bjtm8h3kf6mdn" path="res://a_way_home/survivor template/Audio/my audio/silly creepy crawly.mp3" id="8_t2lby"]
+[ext_resource type="AudioStream" uid="uid://coghwar4ym5ho" path="res://a_way_home/survivor template/Audio/my audio/creep-crawdly_idea.wav" id="10_s3sfi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhegx"]
 size = Vector2(317, 47.5)
@@ -77,8 +79,13 @@ position = Vector2(140, -53)
 
 [node name="Human_player" parent="." instance=ExtResource("3_cbc15")]
 position = Vector2(257, -35)
-collision_layer = 2
-collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_5wd7y")
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D"]
 
 [node name="EnemySpawner" parent="." instance=ExtResource("4_k3hyg")]
 
@@ -87,9 +94,21 @@ collision_mask = 2
 [node name="Exp" parent="Loot" instance=ExtResource("5_78qtm")]
 exp = 10
 
+[node name="Exp2" parent="Loot" instance=ExtResource("5_78qtm")]
+position = Vector2(-27, 28)
+exp = 10
+
+[node name="Exp3" parent="Loot" instance=ExtResource("5_78qtm")]
+position = Vector2(39, 55)
+exp = 10
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_q82sw")
-volume_db = -15.0
+volume_db = -25.0
 
 [node name="end_game" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_t2lby")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_s3sfi")
+volume_db = -15.0

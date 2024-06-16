@@ -44,8 +44,32 @@ func update_javelin():
 			damage=10
 			knockback_amount=100
 			paths=3 #曲折次數
-			attack_size=1.5 #武器大小(範圍)
-			attack_speed=4.0 #攻擊間隔	
+			attack_size=1.5*(1 + player.spell_size) #武器大小(範圍)
+			attack_speed=5.0* (1-player.spell_cooldown) #攻擊間隔
+		2:
+			hp = 9999
+			speed = 200.0
+			damage = 10
+			knockback_amount = 100
+			paths = 2
+			attack_size=1.5 * (1 + player.spell_size)
+			attack_speed = 5.0 * (1-player.spell_cooldown)
+		3:
+			hp = 9999
+			speed = 200.0
+			damage = 10
+			knockback_amount = 100
+			paths = 3
+			attack_size=1.5 * (1 + player.spell_size)
+			attack_speed = 5.0 * (1-player.spell_cooldown)
+		4:
+			hp = 9999
+			speed = 200.0
+			damage = 15
+			knockback_amount = 120
+			paths = 3
+			attack_size=1.5 * (1 + player.spell_size)
+			attack_speed = 5.0 * (1-player.spell_cooldown)		
 	scale=Vector2(1.0,1.0)*attack_size
 	attackTimer.wait_time=attack_speed
 	
