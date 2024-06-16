@@ -3,5 +3,6 @@
 [ext_resource type="AudioStream" uid="uid://dv6xyosg3uwae" path="res://assets/audio/Shop by Luke Pickman.mp3" id="1_o10ox"]
 
 [node name="RpgManager" type="AudioStreamPlayer"]
+process_mode = 3
 stream = ExtResource("1_o10ox")
 autoplay = true
