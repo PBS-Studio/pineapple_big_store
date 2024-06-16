@@ -9,7 +9,6 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sprite.visible=false
-	Bgm.stream_paused=true
 	audio.play()
 	snd.play()
 
